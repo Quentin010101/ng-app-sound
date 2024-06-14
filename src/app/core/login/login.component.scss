@@ -1,5 +1,24 @@
-#form-container{
+#page{
+
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    #form-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        .input-width{
+            width: 100%;
+        }
+    
+        width: 25rem;
+    }
+
+    .divider{
+        padding: 1rem 1rem;
+    }
 }
