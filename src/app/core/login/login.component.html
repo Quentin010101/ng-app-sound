@@ -3,27 +3,32 @@
     <mat-card>
         <mat-card-header>
             <mat-card-title >Login</mat-card-title>
-            <mat-card-subtitle>Login form</mat-card-subtitle>
+            <mat-card-subtitle>Please log in to continue</mat-card-subtitle>
         </mat-card-header>
-        <div class="divider">
-            <mat-divider ></mat-divider>
-        </div>
+        <div class="space"></div>
         <mat-card-content>
-            <form>
-                <div id="form-container">
-                    <mat-form-field appearance="outline" class="input-width">
-                        <mat-label >Username</mat-label>
-                        <input matInput placeholder="Enter your username" value="">
-                        <mat-icon matSuffix color="primary">person</mat-icon>
-                    </mat-form-field>
-                    
-                    <mat-form-field appearance="outline" class="input-width">
-                        <mat-label>Password</mat-label>
-                        <input type="password" matInput placeholder="Enter your password" value="">
-                        <mat-icon matSuffix color="primary">lock</mat-icon>
-                    </mat-form-field>
-                </div>
-            </form>
+            @if(loginFormulaire){
+                <form [formGroup]="loginFormulaire" (submit)="onFormSubmit()">
+                    <div id="form-container">
+                        <mat-form-field class="input-width">
+                            <mat-label >Username</mat-label>
+                            <input matInput placeholder="Enter your username" formControlName="username">
+                            <mat-icon matSuffix color="primary">person</mat-icon>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="input-width">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput placeholder="Enter your password" formControlName="password">
+                            <mat-icon matSuffix color="primary">lock</mat-icon>
+                        </mat-form-field>
+                        
+                        <button mat-flat-button color="primary" [disabled]="loginFormulaire.invalid">
+                            Send
+                            <mat-icon>send</mat-icon>
+                        </button>
+                    </div>
+                </form>
+            }
         </mat-card-content>
     </mat-card>
 </div>
