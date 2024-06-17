@@ -1,30 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {MatCardModule} from '@angular/material/card'; 
-import {MatInputModule} from '@angular/material/input'; 
-import {MatFormFieldModule} from '@angular/material/form-field'; 
-import {MatIconModule} from '@angular/material/icon'; 
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button'; 
 import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { TextComponent } from '../../shared/input/text/text.component';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatInputModule, MatFormFieldModule, MatIconModule,MatDividerModule, MatButtonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TextComponent ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  public loginFormulaire!: FormGroup
+  public loginFormulaire = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
+  })
 
   constructor(){
-    this.loginFormulaire = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+    this.loginFormulaire.controls['username'].valueChanges.subscribe(data => {
+      console.log("data")
     })
-
-    console.log(this.loginFormulaire.invalid)
   }
 
   public onFormSubmit(){

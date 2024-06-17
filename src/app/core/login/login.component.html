@@ -1,34 +1,4 @@
 <div id="page">
-    <h1>WELCOME</h1>
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title >Login</mat-card-title>
-            <mat-card-subtitle>Please log in to continue</mat-card-subtitle>
-        </mat-card-header>
-        <div class="space"></div>
-        <mat-card-content>
-            @if(loginFormulaire){
-                <form [formGroup]="loginFormulaire" (submit)="onFormSubmit()">
-                    <div id="form-container">
-                        <mat-form-field class="input-width">
-                            <mat-label >Username</mat-label>
-                            <input matInput placeholder="Enter your username" formControlName="username">
-                            <mat-icon matSuffix color="primary">person</mat-icon>
-                        </mat-form-field>
-                        
-                        <mat-form-field class="input-width">
-                            <mat-label>Password</mat-label>
-                            <input type="password" matInput placeholder="Enter your password" formControlName="password">
-                            <mat-icon matSuffix color="primary">lock</mat-icon>
-                        </mat-form-field>
-                        
-                        <button mat-flat-button color="primary" [disabled]="loginFormulaire.invalid">
-                            Send
-                            <mat-icon>send</mat-icon>
-                        </button>
-                    </div>
-                </form>
-            }
-        </mat-card-content>
-    </mat-card>
+    <input-text [control]="loginFormulaire.controls.username" icon="user" placeholder="Enter your username"></input-text>
+    <input-text [control]="loginFormulaire.controls.password" icon="lock" placeholder="Enter your password"></input-text>
 </div>

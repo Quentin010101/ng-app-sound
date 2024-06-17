@@ -1,0 +1,9 @@
+<div id="container" class="input">
+    @if(label){
+        <label>{{ label }}</label>
+    }
+    <div id="input">
+        <app-icon [icon]="icon" [solid]="focus"></app-icon>
+        <input #input type="text" [formControl]="control" [placeholder]="placeholder" (focus)="onFocus()" (blur)="onBlur()">
+    </div>
+</div>

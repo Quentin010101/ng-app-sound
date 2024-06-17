@@ -1,0 +1,12 @@
+@if(icon){
+@if(name && nameSolid){
+<div id="container">
+    @if(!solid){
+    <ng-icon [name]="name"></ng-icon>
+    }
+    @else{
+    <ng-icon [name]="nameSolid"></ng-icon>
+    }
+</div>
+}
+}
