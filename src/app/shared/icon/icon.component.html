@@ -2,10 +2,10 @@
 @if(name && nameSolid){
 <div id="container">
     @if(!solid){
-    <ng-icon [name]="name"></ng-icon>
+    <ng-icon [name]="name" [ngClass]="{'primary-color' : color, 'default-color': !color}"></ng-icon>
     }
     @else{
-    <ng-icon [name]="nameSolid"></ng-icon>
+    <ng-icon [name]="nameSolid" [ngClass]="{'primary-color' : color}"></ng-icon>
     }
 </div>
 }

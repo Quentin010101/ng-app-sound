@@ -1,0 +1,59 @@
+
+$primary: rgb(88, 88, 255);
+
+$text: rgb(10, 10, 10);
+
+$bg-0: white;
+$bg-1: darken($bg-0,4%);
+$bg-2: darken($bg-0,8%);
+$bg-3: darken($bg-0,12%);
+$bg-4: darken($bg-0,16%);
+
+body[bright]{
+
+    .primary-color{
+        color: $primary;
+    }
+    .primary-background{
+        background-color: $primary;
+    }
+
+    .input-component{
+        color: $text;
+        
+        
+        .input{
+            border: 1px solid $bg-2;
+            background-color: $bg-1;
+            
+            &:focus-within{
+                border: 1px solid $bg-4;
+                background-color: $bg-2;
+            }
+
+            input{
+                background-color: transparent;
+            }
+        }
+    }
+
+    .button{
+        background-color: $primary;
+        transition: all ease-in-out 0.2s;
+        p{
+            color: $text;
+            -webkit-filter: invert(100%);
+            filter: invert(100%);
+        }
+
+        &:hover{
+            background-color: darken($primary, 5%)
+        }
+    }
+}
+
+
+
+
+
+
