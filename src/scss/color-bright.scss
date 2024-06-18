@@ -1,7 +1,7 @@
 
-$primary: rgb(88, 88, 255);
+$primary: #5858ff;
 
-$text: rgb(10, 10, 10);
+$text: rgb(31, 31, 31);
 
 $bg-0: white;
 $bg-1: darken($bg-0,4%);
@@ -10,6 +10,10 @@ $bg-3: darken($bg-0,12%);
 $bg-4: darken($bg-0,16%);
 
 body[bright]{
+
+    .bg{
+        background-color: #e0e0e0;
+    }
 
     .primary-color{
         color: $primary;
@@ -22,23 +26,27 @@ body[bright]{
         color: $text;
         
         
-        .input{
-            border: 1px solid $bg-2;
-            background-color: $bg-1;
+        // .input{
+        //     border: 1px solid $bg-2;
+        //     background-color: $bg-1;
             
-            &:focus-within{
-                border: 1px solid $bg-4;
-                background-color: $bg-2;
-            }
+        //     &:focus-within{
+        //         outline: 1px solid lighten($primary, 10%);
+        //         background-color: $bg-2;
+        //     }
+        //     &:hover{
+        //         border: 1px solid $bg-3;
+        //         background-color: $bg-2;
+        //     }
 
             input{
                 background-color: transparent;
             }
-        }
+        // }
     }
 
     .button{
-        background-color: $primary;
+        // background-color: $primary;
         transition: all ease-in-out 0.2s;
         p{
             color: $text;
@@ -48,6 +56,16 @@ body[bright]{
 
         &:hover{
             background-color: darken($primary, 5%)
+        }
+
+        &:disabled{
+            border: 1px solid $bg-2;
+            background-color: $bg-1;
+            p{
+                color: lighten($text, 40%);
+                -webkit-filter: invert(0%);
+                filter: invert(0%);
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
         <label>{{ label }}</label>
     }
     <div class="input"  (click)="input.focus()">
-        <app-icon [icon]="icon" [solid]="focus" [color]="true"></app-icon>
+        <app-icon [icon]="icon" [solid]="!focus" [color]="true"></app-icon>
         <input #input type="text" [formControl]="control" [placeholder]="placeholder" (focus)="onFocus()" (blur)="onBlur()">
     </div>
 </div>

@@ -11,5 +11,6 @@ import { IconComponent } from '../../icon/icon.component';
 export class ButtonComponent {
   @Input() text: string = '';
   @Input() icon: string = '';
+  @Input() disabled: boolean = true;
 
 }

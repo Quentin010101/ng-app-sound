@@ -1,5 +1,5 @@
-<div id="page">
+<div id="page" [formGroup]="loginFormulaire" class="bg">
     <input-text [control]="loginFormulaire.controls.username" label="Username" icon="user" placeholder="Enter your username"></input-text>
     <input-password [control]="loginFormulaire.controls.password" label="Passord" icon="lock" placeholder="Enter your password"></input-password>
-    <input-button text="hello" icon="send"/>
+    <input-button text="hello" icon="send" [disabled]="loginFormulaire.invalid"/>
 </div>
