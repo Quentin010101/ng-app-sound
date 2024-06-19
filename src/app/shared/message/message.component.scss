@@ -1,0 +1,25 @@
+@import '../../../scss/color.scss';
+
+.message-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+
+    .message{
+        padding: 0.25rem 0.75rem;
+        border-left: solid 0.35rem var(--valid);
+        background-color: var(--bg-invert-2);
+        color: var(--text-invert-3);
+
+        &.error{
+            border-left: solid 0.35rem var(--invalid);
+        }
+
+        p{
+            font-size: 0.8em
+        }
+    }
+}

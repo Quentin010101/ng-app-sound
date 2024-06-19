@@ -1,3 +1,5 @@
+@import '../../../scss/color.scss';
+
 #page{
 
     min-height: 100vh;
@@ -6,21 +8,23 @@
     align-items: center;
     flex-direction: column;
 
-    #form-container{
+    #form{
         display: flex;
         flex-direction: column;
-        align-items: center;
+        gap: 1.5rem;
     
-        .input-width{
-            width: 100%;
+        p{
+            margin: 0;
+            &.title{
+                font-weight: 800;
+                font-size: 1.8em;
+                color: var(--primary);
+            }
+            &.subtitle{
+                font-weight: 600;
+                font-size: 0.9em;
+                color: var(--text-4);
+            }
         }
-    
-        width: 20rem;
     }
-
-    .space{
-        height: 1rem;
-    }
-
-    
 }

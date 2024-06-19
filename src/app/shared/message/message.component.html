@@ -1,0 +1,7 @@
+<div class="message-container">
+    @for(message of messages; track $index){
+        <div [ngClass]="{'message' : true, 'error' : message.error}" >
+            <p>{{ message.text }}</p>
+        </div>
+    }
+</div>

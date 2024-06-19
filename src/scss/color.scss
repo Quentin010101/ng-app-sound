@@ -1,0 +1,87 @@
+$text: rgb(41, 41, 41);
+
+body{
+    $bg: rgb(235, 235, 235);
+    $primary: #0277BD;
+
+
+    --bg: #{$bg};
+    --bg-1: #{darken($bg, 5%)};
+    --bg-2: #{darken($bg, 10%)};
+    --bg-3: #{darken($bg, 15%)};
+    --bg-4: #{darken($bg, 20%)};
+    --bg-5: #{darken($bg, 25%)};
+    --bg-6: #{darken($bg, 30%)};
+    --bg-7: #{darken($bg, 40%)};
+    --bg-8: #{darken($bg, 50%)};
+    --bg-invert-1: #{darken($bg, 80%)};
+    --bg-invert-2: #{darken($bg, 70%)};
+    --bg-invert-3: #{darken($bg, 65%)};
+    --bg-invert-4: #{darken($bg, 60%)};
+
+    --primary: #{$primary};
+    --primary-1: #{lighten($primary, 5%)};
+    --primary-2: #{lighten($primary, 10%)};
+    --primary-3: #{lighten($primary, 15%)};
+    --primary-4: #{lighten($primary, 20%)};
+
+    --valid: green;
+    --invalid: red;
+
+    --text: #{$text};
+    --text-1: #{lighten($text, 5%)};
+    --text-2: #{lighten($text, 10%)};
+    --text-3: #{lighten($text, 15%)};
+    --text-4: #{lighten($text, 20%)};
+    --text-invert-1: #{lighten($text, 80%)};
+    --text-invert-2: #{lighten($text, 70%)};
+    --text-invert-3: #{lighten($text, 65%)};
+    --text-invert-4: #{lighten($text, 60%)};
+
+    --shadow: #{2px 2px 5px 1px transparentize($text, 0.5)};
+
+}
+
+body[data-theme='dark']{
+    $bg: rgb(25, 25, 25);
+    $primary: #4FC3F7;
+    $text: invert($text);
+
+    --bg: #{$bg};
+    --bg-1: #{lighten($bg, 5%)};
+    --bg-2: #{lighten($bg, 10%)};
+    --bg-3: #{lighten($bg, 15%)};
+    --bg-4: #{lighten($bg, 20%)};
+    --bg-5: #{lighten($bg, 25%)};
+    --bg-6: #{lighten($bg, 30%)};
+    --bg-7: #{lighten($bg, 40%)};
+    --bg-8: #{lighten($bg, 50%)};
+
+    --primary: #{$primary};
+    --primary-1: #{darken($primary, 5%)};
+    --primary-2: #{darken($primary, 10%)};
+    --primary-3: #{darken($primary, 15%)};
+    --primary-4: #{darken($primary, 20%)};
+
+    --text: #{$text};
+    --text-1: #{darken($text, 5%)};
+    --text-2: #{darken($text, 10%)};
+    --text-3: #{darken($text, 15%)};
+    --text-4: #{darken($text, 20%)};
+
+    --shadow: #{2px 2px 5px 1px transparentize($text, 0.5)};
+}
+
+.primary-color{
+    color: var(--primary);
+}
+
+
+
+
+
+
+
+
+
+

@@ -10,6 +10,7 @@ export function responseInterceptor(req: HttpRequest<unknown>, next: HttpHandler
 
     return next(req).pipe(
         catchError((error: HttpErrorResponse) => {
+            console.log(error.status)
             let errorMessage = "";
 
             if (error.error instanceof ErrorEvent) {
@@ -18,6 +19,7 @@ export function responseInterceptor(req: HttpRequest<unknown>, next: HttpHandler
                 if (error.status === 400) handle400Error()
                 if (error.status === 401) handle401Error()
                 if (error.status === 403) handle403Error()
+                if (error.status === 404) handle404Error()
             }
 
             return throwError(() => errorMessage);
@@ -40,5 +42,9 @@ function handle401Error() {
 function handle403Error() {
     // the server understands the request but refuses to fulfill it
     console.error("forbiden credential")
+}
+function handle404Error() {
+    // the server understands the request but refuses to fulfill it
+    console.error("not found")
 
 }

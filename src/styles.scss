@@ -1,9 +1,8 @@
-@import './scss/color-bright.scss';
-@import './scss/color-dark.scss';
+@import './scss/color.scss';
 @import './scss/sharp.scss';
 @import './scss/input.scss';
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;background-color: var(--bg);color:var(--text);}
 
