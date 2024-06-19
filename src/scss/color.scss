@@ -2,7 +2,7 @@ $text: rgb(41, 41, 41);
 
 body{
     $bg: rgb(235, 235, 235);
-    $primary: #0277BD;
+    $primary: #44a9e4;
 
 
     --bg: #{$bg};
@@ -44,7 +44,7 @@ body{
 
 body[data-theme='dark']{
     $bg: rgb(25, 25, 25);
-    $primary: #4FC3F7;
+    $primary: #1188be;
     $text: invert($text);
 
     --bg: #{$bg};

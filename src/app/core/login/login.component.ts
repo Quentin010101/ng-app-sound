@@ -7,7 +7,6 @@ import { ButtonComponent } from '../../shared/input/button/button.component';
 import { ThemeComponent } from '../../shared/theme/theme.component';
 import { AuthenticationService } from '../../service/security/authentication.service';
 import { RequestAuthentication } from '../../interface/security/requestAuthentication.interface';
-import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from '../../service/utils/message.service';
 import { Message } from '../../interface/utils/message.interface';
 import { Subject } from 'rxjs';
