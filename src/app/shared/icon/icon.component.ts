@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { heroUser, heroLockClosed, heroPaperAirplane , heroArrowRight } from '@ng-icons/heroicons/outline';
-import { heroUserSolid, heroLockClosedSolid, heroPaperAirplaneSolid  , heroArrowRightSolid} from '@ng-icons/heroicons/solid';
+import { heroUser, heroLockClosed, heroPaperAirplane , heroArrowRight, heroAdjustmentsHorizontal, heroHome, heroPencil, heroBookOpen, heroPower } from '@ng-icons/heroicons/outline';
+import { heroUserSolid, heroLockClosedSolid, heroPaperAirplaneSolid  , heroArrowRightSolid, heroAdjustmentsHorizontalSolid, heroHomeSolid, heroPencilSolid, heroBookOpenSolid, heroPowerSolid} from '@ng-icons/heroicons/solid';
 import { NgIconComponent , provideIcons } from '@ng-icons/core';
 
 @Component({
@@ -9,7 +9,8 @@ import { NgIconComponent , provideIcons } from '@ng-icons/core';
   standalone: true,
   imports: [CommonModule, NgIconComponent],
   providers: [provideIcons({ heroUser, heroUserSolid, heroLockClosed, heroLockClosedSolid, heroPaperAirplane, heroPaperAirplaneSolid,
-    heroArrowRight, heroArrowRightSolid
+    heroArrowRight, heroArrowRightSolid, heroAdjustmentsHorizontal, heroAdjustmentsHorizontalSolid, heroHome, heroHomeSolid,heroPencil, heroBookOpen,
+    heroPencilSolid, heroBookOpenSolid, heroPower, heroPowerSolid
    })],
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss'
@@ -33,6 +34,11 @@ export class IconComponent {
       case 'lock' : this.name = 'heroLockClosed'; this.nameSolid = 'heroLockClosedSolid'; break;
       case 'send' : this.name = 'heroPaperAirplane'; this.nameSolid = 'heroPaperAirplaneSolid'; break;
       case 'arrow-right' : this.name = 'heroArrowRight'; this.nameSolid = 'heroArrowRightSolid'; break;
+      case 'setting' : this.name = 'heroAdjustmentsHorizontal'; this.nameSolid = 'heroAdjustmentsHorizontalSolid'; break;
+      case 'home' : this.name = 'heroHome'; this.nameSolid = 'heroHomeSolid'; break;
+      case 'pencil' : this.name = 'heroPencil'; this.nameSolid = 'heroPencilSolid'; break;
+      case 'book' : this.name = 'heroBookOpen'; this.nameSolid = 'heroBookOpenSolid'; break;
+      case 'power' : this.name = 'heroPower'; this.nameSolid = 'heroPowerSolid'; break;
       default: break;
     }
     

@@ -25,6 +25,8 @@ export class LoginService {
   public validateResponseAuthentication(responseAuthentication: ResponseAuthentication) : boolean{
     return !Tools.isBlank(responseAuthentication.jwtToken) && 
       !Tools.isBlank(responseAuthentication.username) && 
+      responseAuthentication.expirationTime != null && 
+      responseAuthentication.expirationTime > new Date().getTime() && 
       responseAuthentication.roles != null &&
       responseAuthentication.roles.length > 0
   }

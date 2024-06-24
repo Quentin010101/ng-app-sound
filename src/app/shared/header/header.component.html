@@ -1,0 +1,9 @@
+
+<header>
+    <div>
+        <h1>{{ username }}</h1>
+    </div>
+    <button (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="logOut()">
+        <app-icon icon="power" [size]="hover? '1.5rem' : '1.3rem'"></app-icon>
+    </button>
+</header>

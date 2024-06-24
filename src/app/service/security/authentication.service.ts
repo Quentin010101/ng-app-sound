@@ -5,7 +5,6 @@ import { ResponseAuthentication } from '../../interface/security/responseAuthent
 import { Role } from '../../interface/security/role.interface';
 import { Tools } from '../../utils/tools';
 import { Router } from '@angular/router';
-import { LoginComponent } from '../../core/login/login.component';
 import { Subject } from 'rxjs';
 import { MessageService } from '../utils/message.service';
 import { Message } from '../../interface/utils/message.interface';
@@ -23,6 +22,7 @@ export class AuthenticationService {
   private userHasToken = false
   private userToken: string | null = null
   private username: string | null = null
+  private expirationTime: number | null = null
   private roles: Role[] = []
 
 
@@ -33,8 +33,11 @@ export class AuthenticationService {
     if(this.userIsAuthenticated) throw new Error("user shouldn t be auth yet")
     
     let userInStorage: ResponseAuthentication | null = this.getResponseAuthenticationFromLocalStorage()
-    if(userInStorage){
+    if(userInStorage && this.isExpirationTimeValid(userInStorage.expirationTime)){
       this.handleAuthenticationResponseValid(userInStorage)
+    }else{
+      this.clearLocalStorage()
+      this.resetAuthentication()
     }
   }
 
@@ -72,12 +75,14 @@ export class AuthenticationService {
     this.userHasToken = true
     this.userToken = responseAuthentication.jwtToken
     this.username = responseAuthentication.username
+    this.expirationTime = responseAuthentication.expirationTime
     this.roles = responseAuthentication.roles
   }
 
   private storeResponseAuthenticationToLocalStorage(responseAuthentication: ResponseAuthentication){
     localStorage.setItem("userToken", responseAuthentication.jwtToken)
     localStorage.setItem("username", responseAuthentication.username)
+    localStorage.setItem("expirationTime", responseAuthentication.expirationTime.toString())
     localStorage.setItem("roles", JSON.stringify(responseAuthentication.roles))
   }
 
@@ -90,18 +95,25 @@ export class AuthenticationService {
     this.userHasToken = false
     this.userToken = null
     this.username = null
+    this.expirationTime = null
     this.roles = []
+  }
+
+  private isExpirationTimeValid(time: number | null){
+    return time != null && time > new Date().getTime()
   }
 
   private getResponseAuthenticationFromLocalStorage(): ResponseAuthentication | null{
     let jwtToken = localStorage.getItem("userToken")
     let username = localStorage.getItem("username")
+    let expirationTime = localStorage.getItem("expirationTime")
     let roles = localStorage.getItem("roles")
 
-    if(!Tools.isBlank(jwtToken) && !Tools.isBlank(username) && this.checkRoleValid(roles)){
+    if(!Tools.isBlank(jwtToken) && !Tools.isBlank(username) && !Tools.isBlank(expirationTime) && this.checkRoleValid(roles)){
         let user = new ResponseAuthentication()
         user.jwtToken = jwtToken as string
         user.username = username as string
+        user.expirationTime = parseInt(expirationTime as string)
         user.roles = JSON.parse(roles as string)
 
         return user
@@ -114,7 +126,7 @@ export class AuthenticationService {
       let rolesParsed = JSON.parse(rolesString)
       if(rolesParsed instanceof Array){
         let checkRoleInvalid = rolesParsed.find(role => !Object.values(Role).includes(role))
-        if(checkRoleInvalid.length == 0) return true;
+        if(checkRoleInvalid == undefined) return true;
       }
     }
     return false;
@@ -135,10 +147,13 @@ export class AuthenticationService {
 
   // Getter
   get getUserIsAuthenticated(){
-    return this.userIsAuthenticated
+    return this.userIsAuthenticated && this.isExpirationTimeValid(this.expirationTime)
   }
   get getUserHasToken(){
     return this.userHasToken
+  }
+  get getIsAdmin(){
+    return this.getRoles.includes(Role.ROLE_ADMIN)
   }
   get getToken(){
     return this.userToken

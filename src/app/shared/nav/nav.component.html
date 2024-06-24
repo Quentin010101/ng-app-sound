@@ -1,0 +1,32 @@
+<div id="nav">
+    <nav>
+        <ul>
+            <li>
+                <a routerLink="home">
+                    <app-icon size="1.3rem" icon="home"></app-icon>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a routerLink="librairy">
+                    <app-icon size="1.3rem" icon="book"></app-icon>
+                    Librairy
+                </a>
+            </li>
+            @if(isAdmin){
+                <li>
+                    <a routerLink="librairy-management">
+                        <app-icon size="1.3rem" icon="pencil"></app-icon>
+                        Librairy Management
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="api-settings">
+                        <app-icon size="1.3rem" icon="setting"></app-icon>
+                        Api Settings
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

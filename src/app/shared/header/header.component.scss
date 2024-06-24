@@ -1,0 +1,20 @@
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    button{
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        height: 2rem;
+        width: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+}
