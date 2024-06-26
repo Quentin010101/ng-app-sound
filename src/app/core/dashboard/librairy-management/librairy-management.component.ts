@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { BookService } from '../../../service/core/book.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DropComponent } from '../../../shared/drop/drop.component';
+import { DropComponent } from './drop/drop.component';
+import { FileManagementComponent } from './file-management/file-management.component';
 
 @Component({
   selector: 'app-librairy-management',
   standalone: true,
-  imports: [ReactiveFormsModule, DropComponent],
+  imports: [ReactiveFormsModule, DropComponent, FileManagementComponent],
   templateUrl: './librairy-management.component.html',
   styleUrl: './librairy-management.component.scss'
 })

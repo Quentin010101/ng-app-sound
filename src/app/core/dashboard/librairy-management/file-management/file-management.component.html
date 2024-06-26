@@ -1,0 +1,36 @@
+<form [formGroup]="newTitleForm">
+    <input-text icon="pencil" label="title" [control]="newTitleForm.controls.title"></input-text>
+</form>
+@if(directory){
+    <ul>
+        <ng-container
+          *ngTemplateOutlet="Recursion; context:{ directory: directory}"
+        ></ng-container>
+      </ul>
+    
+    
+      
+    <ng-template #Recursion let-directory="directory">
+      <div style="margin-left: 20px;">
+        <h4>
+            <app-icon icon="folder"></app-icon>
+            Directory : {{ directory.name }}
+        </h4>
+        @for(file of directory.files; track $index){
+            <h5>
+                <app-icon icon="musique"></app-icon>
+                File name: {{ file.name }}
+            </h5>
+        }
+        <hr>
+        @for(directory of directory.directories; track $index){
+          <ng-container
+            *ngTemplateOutlet="Recursion; context:{ directory: directory }"
+          ></ng-container>
+        }
+      </div>
+    
+        
+      </ng-template>
+      
+}

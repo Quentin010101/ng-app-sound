@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { heroUser, heroLockClosed, heroPaperAirplane , heroArrowRight, heroAdjustmentsHorizontal, heroHome, heroPencil, heroBookOpen, heroPower } from '@ng-icons/heroicons/outline';
-import { heroUserSolid, heroLockClosedSolid, heroPaperAirplaneSolid  , heroArrowRightSolid, heroAdjustmentsHorizontalSolid, heroHomeSolid, heroPencilSolid, heroBookOpenSolid, heroPowerSolid} from '@ng-icons/heroicons/solid';
+import { heroUser, heroLockClosed, heroPaperAirplane , heroArrowRight, heroAdjustmentsHorizontal, heroHome, heroPencil, heroBookOpen, heroPower, heroMusicalNote, heroFolder } from '@ng-icons/heroicons/outline';
+import { heroUserSolid, heroLockClosedSolid, heroPaperAirplaneSolid  , heroArrowRightSolid, heroAdjustmentsHorizontalSolid, heroHomeSolid, heroPencilSolid, heroBookOpenSolid, heroPowerSolid, heroMusicalNoteSolid, heroFolderSolid } from '@ng-icons/heroicons/solid';
 import { NgIconComponent , provideIcons } from '@ng-icons/core';
 
 @Component({
@@ -10,7 +10,7 @@ import { NgIconComponent , provideIcons } from '@ng-icons/core';
   imports: [CommonModule, NgIconComponent],
   providers: [provideIcons({ heroUser, heroUserSolid, heroLockClosed, heroLockClosedSolid, heroPaperAirplane, heroPaperAirplaneSolid,
     heroArrowRight, heroArrowRightSolid, heroAdjustmentsHorizontal, heroAdjustmentsHorizontalSolid, heroHome, heroHomeSolid,heroPencil, heroBookOpen,
-    heroPencilSolid, heroBookOpenSolid, heroPower, heroPowerSolid
+    heroPencilSolid, heroBookOpenSolid, heroPower, heroPowerSolid, heroMusicalNote, heroFolder, heroMusicalNoteSolid, heroFolderSolid
    })],
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss'
@@ -39,6 +39,8 @@ export class IconComponent {
       case 'pencil' : this.name = 'heroPencil'; this.nameSolid = 'heroPencilSolid'; break;
       case 'book' : this.name = 'heroBookOpen'; this.nameSolid = 'heroBookOpenSolid'; break;
       case 'power' : this.name = 'heroPower'; this.nameSolid = 'heroPowerSolid'; break;
+      case 'folder' : this.name = 'heroFolder'; this.nameSolid = 'heroFolderSolid'; break;
+      case 'musique' : this.name = 'heroMusicalNote'; this.nameSolid = 'heroMusicalNoteSolid'; break;
       default: break;
     }
     
