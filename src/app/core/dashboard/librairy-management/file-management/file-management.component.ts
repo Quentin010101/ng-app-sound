@@ -15,16 +15,14 @@ import { IconComponent } from '../../../../shared/icon/icon.component';
 })
 export class FileManagementComponent {
   private _bookManagementService = inject(BookManagementService)
+
   directory: DirectoryContainer | null = null
 
-  newTitleForm = new FormGroup({
-    title: new FormControl('')
-  })
 
   constructor(){
     this._bookManagementService.newDirectorySubject.subscribe(directory => {
       this.directory = directory
-      this.newTitleForm.get('title')?.setValue(directory.name)
     })
   }
+
 }

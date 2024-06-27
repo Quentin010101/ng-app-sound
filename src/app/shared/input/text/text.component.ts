@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { IconComponent } from '../../icon/icon.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'input-text',
   standalone: true,
-  imports: [ReactiveFormsModule, IconComponent],
+  imports: [CommonModule,ReactiveFormsModule, IconComponent],
   templateUrl: './text.component.html',
   styleUrl: './text.component.scss'
 })

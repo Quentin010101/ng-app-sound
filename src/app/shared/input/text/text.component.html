@@ -2,8 +2,8 @@
     @if(label){
         <label>{{ label }}</label>
     }
-    <div class="input-item"  (click)="input.focus()">
-        <app-icon [icon]="icon" [solid]="focus" [color]="true" size="1.1rem"></app-icon>
+    <div [ngClass]="{'input-item': true, 'disabled': control.disabled}"  (click)="input.focus()">
+        <app-icon [icon]="icon" [solid]="focus" [color]="!control.disabled" size="1.1rem"></app-icon>
         <input #input type="text" [formControl]="control" [placeholder]="placeholder" (focus)="onFocus()" (blur)="onBlur()">
     </div>
 </div>

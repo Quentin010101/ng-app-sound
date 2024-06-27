@@ -17,4 +17,8 @@ export class BookApiService {
   private get(query: string): Observable<VolumeInfo[]>{
     return this.http.get<VolumeInfo[]>(this.url + 'get?query=' + query)
   }
+
+  public requestInfoWithTitle(query: string): Observable<VolumeInfo[]>{
+    return this.get(query)
+  }
 }

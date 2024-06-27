@@ -38,7 +38,14 @@ $radius: 0.25rem;
             border: solid 1px transparent;
             outline: solid 2px var(--primary);
         }
+
+
+        &.disabled{
+            background-color: var(--bg-1);
+            color: var(--bg-5);
+        }
     }
+
 }
 
 button.button {

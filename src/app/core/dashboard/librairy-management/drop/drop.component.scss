@@ -1,5 +1,11 @@
-#drop{
+#dropzone{
     width: 500px;
     height: 500px;
     border: solid;
+    position: relative;
+
+    input{
+        position: absolute;
+        inset: 0;
+    }
 }
