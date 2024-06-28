@@ -1,11 +1,19 @@
 <div id="state">
-    <div class="point active">1</div>
+    <div class="point-container active">
+        <div class="point">1</div>
+    </div>
     <div [ngClass]="{'line':true, 'active': state > 1}"></div>
-    <div [ngClass]="{'point':true, 'active': state > 1}">2</div>
-    <div class="line"></div>
-    <div class="point">3</div>
-    <div class="line"></div>
-    <div class="point">4</div>
+    <div [ngClass]="{'point-container':true, 'active': state > 1}">
+        <div class="point">2</div>
+    </div>
+    <div [ngClass]="{'line':true, 'active': state > 2}"></div>
+    <div [ngClass]="{'point-container':true, 'active': state > 2}">
+        <div class="point">3</div>
+    </div>
+    <div [ngClass]="{'line':true, 'active': state > 3}"></div>
+    <div [ngClass]="{'point-container':true, 'active': state > 3}">
+        <div class="point">4</div>
+    </div>
 </div>
     
 
