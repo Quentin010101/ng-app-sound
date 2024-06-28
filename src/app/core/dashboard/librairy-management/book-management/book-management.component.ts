@@ -1,22 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { VolumeInfo } from '../../../../interface/bookApi/volumeInfo.interface';
 import { Author } from '../../../../interface/core/author.interface';
+import { TextComponent } from '../../../../shared/input/text/text.component';
+import { BookManagementService } from '../../../../service/api/book-management.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-management',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,TextComponent],
   templateUrl: './book-management.component.html',
   styleUrl: './book-management.component.scss'
 })
 export class BookManagementComponent {
-
+  private _bookManagementService = inject(BookManagementService)
+  private router = inject(Router)
+  private activeRoute = inject(ActivatedRoute)
+  
   constructor(){
-
+    if(!this._bookManagementService.serviceInit) {
+      this.redirectToRoot()
+    }else{
+    this._bookManagementService.state.next(4)
+    }
   }
 
-  newBookFrom = new FormGroup({
+  newBookForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
     description: new FormControl('', [ Validators.minLength(5), Validators.maxLength(500)]),
     image: new FormGroup({
@@ -34,11 +44,11 @@ export class BookManagementComponent {
   })
 
   private fillFormulaire(volumeInfo: VolumeInfo){
-    this.newBookFrom.get('title')?.setValue(volumeInfo.title)
-    this.newBookFrom.get('description')?.setValue(volumeInfo.description)
-    this.newBookFrom.get('image')?.get('imagePath')?.setValue(volumeInfo.imageLinks.thumbnail)
-    this.newBookFrom.get('image')?.get('imageThumbnailPath')?.setValue(volumeInfo.imageLinks.smallThumbnail)
-    this.newBookFrom.get('authors')?.setValue(this.transformStringIntoNameSurname(volumeInfo.authors))
+    this.newBookForm.get('title')?.setValue(volumeInfo.title)
+    this.newBookForm.get('description')?.setValue(volumeInfo.description)
+    this.newBookForm.get('image')?.get('imagePath')?.setValue(volumeInfo.imageLinks.thumbnail)
+    this.newBookForm.get('image')?.get('imageThumbnailPath')?.setValue(volumeInfo.imageLinks.smallThumbnail)
+    this.newBookForm.get('authors')?.setValue(this.transformStringIntoNameSurname(volumeInfo.authors))
   }
 
 
@@ -58,5 +68,9 @@ export class BookManagementComponent {
     }
 
     return authors
+  }
+
+  private redirectToRoot(){
+    this.router.navigate(['drop'] , {relativeTo: this.activeRoute.parent})
   }
 }

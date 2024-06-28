@@ -5,6 +5,7 @@ import { TextComponent } from '../../../../shared/input/text/text.component';
 import { BookApiService } from '../../../../service/api/book-api.service';
 import { VolumeInfo } from '../../../../interface/bookApi/volumeInfo.interface';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-api-choice',
@@ -16,6 +17,8 @@ import { CommonModule } from '@angular/common';
 export class ApiChoiceComponent {
   private _bookManagementService = inject(BookManagementService)
   private _bookApiService = inject(BookApiService)
+  private router = inject(Router)
+  private activeRoute = inject(ActivatedRoute)
   public apiResponse: VolumeInfo[] = []
 
   newTitleForm = new FormGroup({
@@ -23,11 +26,17 @@ export class ApiChoiceComponent {
   })
 
   constructor(){
-    this._bookManagementService.newDirectorySubject.subscribe(directory => {
-      this.newTitleForm.controls.title.enable()
-      this.newTitleForm.get('title')?.setValue(directory.name)
-      this.callApi(directory.name)
-    })
+    if(!this._bookManagementService.serviceInit) {
+      this.redirectToRoot()
+    }else{
+      this._bookManagementService.state.next(2)
+  
+      this._bookManagementService.newDirectorySubject.subscribe(directory => {
+        this.newTitleForm.controls.title.enable()
+        this.newTitleForm.get('title')?.setValue(directory.name)
+        this.callApi(directory.name)
+      })
+    }
   }
 
   onFormulaireSubmit(){
@@ -40,6 +49,10 @@ export class ApiChoiceComponent {
         this.apiResponse = response
       })
     }
+  }
+
+  private redirectToRoot(){
+    this.router.navigate(['drop'] , {relativeTo: this.activeRoute.parent})
   }
 
 

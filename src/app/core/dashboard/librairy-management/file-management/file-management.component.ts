@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { BookManagementService } from '../../../../service/api/book-management.service';
 import { DirectoryContainer } from '../../../../interface/bookApi/bookContainer.interface';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 import { TextComponent } from '../../../../shared/input/text/text.component';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../../../shared/icon/icon.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-file-management',
@@ -15,14 +16,26 @@ import { IconComponent } from '../../../../shared/icon/icon.component';
 })
 export class FileManagementComponent {
   private _bookManagementService = inject(BookManagementService)
-
+  private router = inject(Router)
+  private activeRoute = inject(ActivatedRoute)
+  
   directory: DirectoryContainer | null = null
 
 
   constructor(){
-    this._bookManagementService.newDirectorySubject.subscribe(directory => {
-      this.directory = directory
-    })
+    if(!this._bookManagementService.serviceInit) {
+      this.redirectToRoot()
+    }else{
+      this._bookManagementService.state.next(3)
+
+      this._bookManagementService.newDirectorySubject.subscribe(directory => {
+        this.directory = directory
+      })
+    }
+  }
+
+  private redirectToRoot(){
+    this.router.navigate(['drop'] , {relativeTo: this.activeRoute.parent})
   }
 
 }

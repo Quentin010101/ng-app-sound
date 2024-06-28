@@ -1,21 +1,21 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { handleDataTransferList } from './fileHandler';
 import { DirectoryContainer } from '../../interface/bookApi/bookContainer.interface';
-import { BookApiService } from './book-api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookManagementService {
-  private _bookApiService = inject(BookApiService)
-
+  serviceInit: boolean = false
   newFileSubject = new Subject<DataTransferItemList>()
   newDirectorySubject = new Subject<DirectoryContainer>()
+  state = new Subject<number>()
 
 
   constructor() { 
     this.newFileSubject.subscribe(response => {
+      this.serviceInit = true
       this.newBook(response)
     })
   }
