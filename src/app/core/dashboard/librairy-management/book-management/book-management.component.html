@@ -1,4 +1,19 @@
 <form [formGroup]="newBookForm">
-    <input-text icon="lock" label="title" [control]="newBookForm.controls.title"></input-text>
-    <input-text icon="lock" label="description" [control]="newBookForm.controls.description"></input-text>
+    <input-text icon="book" label="title" [control]="newBookForm.controls.title"></input-text>
+    <ng-container formArrayName="authors">
+        @for(author of authors.value; track $index){
+            <p>{{ author.name }}</p>
+        }
+    </ng-container>
+    <ng-container formArrayName="categories">
+        @for(category of categories.value; track $index){
+            <p>{{ category.name }}</p>
+        }
+    </ng-container>
+    @if(imagePath.value){
+        <img [src]="imagePath.value" alt="image">
+    }@else if(imageThumbnailPath.value){
+        <img [src]="imageThumbnailPath.value" alt="thumbnail">
+    }
+    <input-textarea icon="lock" label="description" [control]="newBookForm.controls.description"></input-textarea>
 </form>

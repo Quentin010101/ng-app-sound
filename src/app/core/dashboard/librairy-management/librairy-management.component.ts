@@ -6,11 +6,12 @@ import { ApiChoiceComponent } from './api-choice/api-choice.component';
 import { RouterOutlet } from '@angular/router';
 import { BookManagementService } from '../../../service/api/book-management.service';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../../../shared/icon/icon.component';
 
 @Component({
   selector: 'app-librairy-management',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, DropComponent, FileManagementComponent, ApiChoiceComponent, CommonModule],
+  imports: [RouterOutlet, ReactiveFormsModule, DropComponent, FileManagementComponent, ApiChoiceComponent, CommonModule, IconComponent],
   templateUrl: './librairy-management.component.html',
   styleUrl: './librairy-management.component.scss'
 })

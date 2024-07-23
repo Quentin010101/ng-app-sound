@@ -2,11 +2,18 @@
 @import './color.scss';
 
 $height: 1.75rem;
+$height-area: 6.75rem;
 $radius: 0.25rem;
+
+.input-container:has(input){
+    width: 15rem;
+}
+.input-container:has(textarea){
+    max-width: 35rem;
+}
 
 .input-container{
     margin: 0.5rem 0 1rem 0;
-    width: 15rem;
 
     label{
        font-size: 0.9em;
@@ -32,6 +39,18 @@ $radius: 0.25rem;
             height: $height;
             background-color: transparent;
             padding: 0 0.5rem;
+            width: 100%;
+        }
+
+        textarea{
+            color: inherit;
+            border: none;
+            outline: none;
+            height: $height-area;
+            background-color: transparent;
+            padding: 0.5rem 0.5rem;
+            resize: none;
+            width: 100%;
         }
 
         &:focus-within{

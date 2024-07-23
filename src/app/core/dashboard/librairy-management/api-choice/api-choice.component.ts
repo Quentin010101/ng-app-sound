@@ -32,15 +32,24 @@ export class ApiChoiceComponent {
       this._bookManagementService.state.next(2)
   
       this._bookManagementService.newDirectorySubject.subscribe(directory => {
-        this.newTitleForm.controls.title.enable()
-        this.newTitleForm.get('title')?.setValue(directory.name)
-        this.callApi(directory.name)
+        if(directory){
+          this.newTitleForm.controls.title.enable()
+          this.newTitleForm.get('title')?.setValue(directory.name)
+          this.callApi(directory.name)
+        }
       })
     }
   }
 
   onFormulaireSubmit(){
     this.callApi(this.newTitleForm.get('title')?.value as string)
+  }
+
+  onBookChoosen(volume: VolumeInfo){
+    if(volume){
+      this._bookManagementService.newVolumeSubject.next(volume)
+      this.router.navigate(['file'] , {relativeTo: this.activeRoute.parent})
+    }
   }
 
   private callApi(title: string){

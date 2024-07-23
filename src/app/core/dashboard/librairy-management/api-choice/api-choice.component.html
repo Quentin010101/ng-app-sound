@@ -4,13 +4,14 @@
 
 <div>
     @for(volume of apiResponse;track $index){
-        <p><span>Title:</span> {{ volume.title }}</p>
-        <p><span>Authors:</span> 
-            @for(author of volume.authors; track $index){
-                {{ author }}
-            }
-        
-        </p>
+        <button (click)="onBookChoosen(volume)">
+            <p><span>Title:</span> {{ volume.title }}</p>
+            <p><span>Authors:</span> 
+                @for(author of volume.authors; track $index){
+                    {{ author }}
+                }
+            </p>
+        </button>
         
 
     }

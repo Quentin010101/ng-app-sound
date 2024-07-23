@@ -34,6 +34,10 @@ export class FileManagementComponent {
     }
   }
 
+  onValidate(){
+    this.router.navigate(['book'] , {relativeTo: this.activeRoute.parent})
+  }
+
   private redirectToRoot(){
     this.router.navigate(['drop'] , {relativeTo: this.activeRoute.parent})
   }

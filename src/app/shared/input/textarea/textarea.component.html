@@ -1,0 +1,8 @@
+<div class="input-container">
+    @if(label){
+        <label>{{ label }}</label>
+    }
+    <div [ngClass]="{'input-item': true, 'disabled': control.disabled}"  (click)="input.focus()">
+        <textarea #input type="text" [formControl]="control" [placeholder]="placeholder" (focus)="onFocus()" (blur)="onBlur()"></textarea>
+    </div>
+</div>
