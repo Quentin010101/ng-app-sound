@@ -33,6 +33,8 @@ body{
     --text-2: #{lighten($text, 10%)};
     --text-3: #{lighten($text, 15%)};
     --text-4: #{lighten($text, 20%)};
+    --text-5: #{lighten($text, 30%)};
+    --text-6: #{lighten($text, 35%)};
     --text-invert-1: #{lighten($text, 80%)};
     --text-invert-2: #{lighten($text, 70%)};
     --text-invert-3: #{lighten($text, 65%)};
@@ -68,12 +70,21 @@ body[data-theme='dark']{
     --text-2: #{darken($text, 10%)};
     --text-3: #{darken($text, 15%)};
     --text-4: #{darken($text, 20%)};
+    --text-5: #{darken($text, 30%)};
+    --text-6: #{darken($text, 35%)};
 
     --shadow: #{2px 2px 5px 1px transparentize($text, 0.5)};
 }
 
 .primary-color{
     color: var(--primary);
+}
+
+.valid{
+    color: var(--valid)
+}
+.invalid{
+    color: var(--invalid)
 }
 
 

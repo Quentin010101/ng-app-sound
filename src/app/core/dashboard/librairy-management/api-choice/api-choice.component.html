@@ -8,6 +8,7 @@
 @else {
   <div>
       @for(volume of apiResponse;track $index){
+        <button (click)="onBookChoosen(volume)">
           <p><span>Title:</span> {{ volume.title }}</p>
           <p><span>Authors:</span>
               @for(author of volume.authors; track $index){
@@ -15,7 +16,7 @@
               }
 
           </p>
-
+        </button>
 
       }
   </div>

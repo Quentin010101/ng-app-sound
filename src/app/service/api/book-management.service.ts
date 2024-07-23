@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { handleDataTransferList } from './fileHandler';
 import { DirectoryContainer } from '../../interface/bookApi/bookContainer.interface';
+import { VolumeInfo } from '../../interface/bookApi/volumeInfo.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { DirectoryContainer } from '../../interface/bookApi/bookContainer.interf
 export class BookManagementService {
   serviceInit: boolean = false
   newFileSubject = new Subject<DataTransferItemList>()
-  newDirectorySubject = new Subject<DirectoryContainer>()
+  newDirectorySubject = new BehaviorSubject<DirectoryContainer | null>(null)
+  newVolumeSubject = new BehaviorSubject<VolumeInfo | null>(null)
   state = new Subject<number>()
 
 

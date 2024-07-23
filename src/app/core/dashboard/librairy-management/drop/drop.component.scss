@@ -1,8 +1,12 @@
+@import '../../../../../scss/color.scss';
+
 #dropzone{
     width: 500px;
     height: 500px;
-    border: solid;
+    border: dashed var(--text-3);
+    background-color: var(--bg-2);
     position: relative;
+    border-radius: 0.5rem;
 
     input{
         position: absolute;

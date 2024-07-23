@@ -1,18 +1,92 @@
 <div id="state">
-    <div class="point-container active">
-        <div class="point">1</div>
+    <div class="step">
+        <div class="point-container active">
+            @if(state > 1){
+                <div class="point">
+                    <app-icon icon="check" [solid]="true" [color]="true" size="1.1rem"></app-icon>
+                </div>
+            }@else{
+                <div class="point">1</div>
+            }
+        </div>
+        <div [ngClass]="{'line':true, 'active': state > 1}"></div>
     </div>
-    <div [ngClass]="{'line':true, 'active': state > 1}"></div>
-    <div [ngClass]="{'point-container':true, 'active': state > 1}">
-        <div class="point">2</div>
+    <div class="step">
+        <div [ngClass]="{'point-container':true, 'active': state > 1}">
+            <div class="point">
+                @if(state > 2){
+                    <div class="point">
+                        <app-icon icon="check" [solid]="true" [color]="true" size="1.1rem"></app-icon>
+                    </div>
+                }@else{
+                    <div class="point">2</div>
+                }
+            </div>
+        </div>
+        <div [ngClass]="{'line':true, 'active': state > 2}"></div>
     </div>
-    <div [ngClass]="{'line':true, 'active': state > 2}"></div>
-    <div [ngClass]="{'point-container':true, 'active': state > 2}">
-        <div class="point">3</div>
+    <div class="step">
+        <div [ngClass]="{'point-container':true, 'active': state > 2}">
+            <div class="point">
+                @if(state > 3){
+                    <div class="point">
+                        <app-icon icon="check" [solid]="true" [color]="true" size="1.1rem"></app-icon>
+                    </div>
+                }@else{
+                    <div class="point">3</div>
+                }
+            </div>
+        </div>
+        <div [ngClass]="{'line':true, 'active': state > 3}"></div>
     </div>
-    <div [ngClass]="{'line':true, 'active': state > 3}"></div>
-    <div [ngClass]="{'point-container':true, 'active': state > 3}">
-        <div class="point">4</div>
+    <div class="step">
+        <div [ngClass]="{'point-container':true, 'active': state > 3}">
+            <div class="point">
+                @if(state > 4){
+                    <div class="point">
+                        <app-icon icon="check" [solid]="true" [color]="true" size="1.1rem"></app-icon>
+                    </div>
+                }@else{
+                    <div class="point">4</div>
+                }
+            </div>
+        </div>
+    </div>
+    <div>
+        <h4>STEP 1</h4>
+        <h5>File Importation</h5>
+        @if(state == 1){
+            <h6 class="primary-color">Processing ..</h6>
+        }@else if(state > 1){
+            <h6 class="valid">Complete</h6>
+        }
+    </div>
+    <div>
+        <h4>STEP 2</h4>
+        <h5>Book Api</h5>
+        @if(state == 2){
+            <h6 class="primary-color">Processing ..</h6>
+        }@else if(state > 2){
+            <h6 class="valid">Complete</h6>
+        }
+    </div>
+    <div>
+        <h4>STEP 3</h4>
+        <h5>File Validation</h5>
+        @if(state == 3){
+            <h6 class="primary-color">Processing ..</h6>
+        }@else if(state > 3){
+            <h6 class="valid">Complete</h6>
+        }
+    </div>
+    <div>
+        <h4>STEP 4</h4>
+        <h5>Book Validation</h5>
+        @if(state == 4){
+            <h6 class="primary-color">Processing ..</h6>
+        }@else if(state > 4){
+            <h6 class="valid">Complete</h6>
+        }
     </div>
 </div>
     
