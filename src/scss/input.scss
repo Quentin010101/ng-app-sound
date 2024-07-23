@@ -10,13 +10,13 @@ $radius: 0.25rem;
 
     label{
        font-size: 0.9em;
-       font-weight: 400; 
+       font-weight: 400;
        margin-bottom: 0.25rem;
        display: block;
        letter-spacing: 0.05rem;
 
     }
-    
+
     .input-item{
         border: solid 1px var(--bg-6);
         background-color: var(--bg-1);
@@ -39,6 +39,11 @@ $radius: 0.25rem;
             outline: solid 2px var(--primary);
         }
 
+        &:hover:not(:focus-within){
+          border: solid 1px var(--bg-4);
+          cursor:text;
+        }
+
 
         &.disabled{
             background-color: var(--bg-1);
@@ -57,7 +62,7 @@ button.button {
     cursor: pointer;
 
     &:hover{
-        background-color: var(--primary-1); 
+        background-color: var(--primary-1);
     }
 
     &:disabled{

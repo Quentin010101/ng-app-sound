@@ -3,11 +3,12 @@ import { Component, inject } from '@angular/core';
 import { DirectoryContainer } from '../../../../interface/bookApi/bookContainer.interface';
 import { BookManagementService } from '../../../../service/api/book-management.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoaderComponent } from '../../../../shared/loader/loader.component';
 
 @Component({
   selector: 'app-drop',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LoaderComponent],
   templateUrl: './drop.component.html',
   styleUrl: './drop.component.scss'
 })
@@ -24,7 +25,7 @@ export class DropComponent {
   constructor(){
     this._bookManagementService.state.next(1)
   }
-  
+
   onDrop(event: DragEvent) {
     event.preventDefault()
     event.stopPropagation()
@@ -37,8 +38,8 @@ export class DropComponent {
 
 
 
-  
-  
+
+
 
 
 

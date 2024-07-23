@@ -29,7 +29,4 @@ export class LibrairyManagementComponent {
     })
   }
 
-  public bookForm = new FormGroup({
-    title: new FormControl('', [Validators.required])
-  })
 }

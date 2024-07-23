@@ -6,11 +6,12 @@ import { BookApiService } from '../../../../service/api/book-api.service';
 import { VolumeInfo } from '../../../../interface/bookApi/volumeInfo.interface';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoaderComponent } from '../../../../shared/loader/loader.component';
 
 @Component({
   selector: 'app-api-choice',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextComponent],
+  imports: [CommonModule, ReactiveFormsModule, TextComponent, LoaderComponent],
   templateUrl: './api-choice.component.html',
   styleUrl: './api-choice.component.scss'
 })
@@ -20,6 +21,7 @@ export class ApiChoiceComponent {
   private router = inject(Router)
   private activeRoute = inject(ActivatedRoute)
   public apiResponse: VolumeInfo[] = []
+  public loading:  boolean = false
 
   newTitleForm = new FormGroup({
     title: new FormControl({value:'',disabled:true}, Validators.required)
@@ -30,7 +32,7 @@ export class ApiChoiceComponent {
       this.redirectToRoot()
     }else{
       this._bookManagementService.state.next(2)
-  
+
       this._bookManagementService.newDirectorySubject.subscribe(directory => {
         this.newTitleForm.controls.title.enable()
         this.newTitleForm.get('title')?.setValue(directory.name)
@@ -45,7 +47,9 @@ export class ApiChoiceComponent {
 
   private callApi(title: string){
     if(title && title.length > 3){
+      this.loading = true
       this._bookApiService.requestInfoWithTitle(title).subscribe(response => {
+        this.loading = false
         this.apiResponse = response
       })
     }

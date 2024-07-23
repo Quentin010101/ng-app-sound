@@ -2,9 +2,9 @@
 
 #state{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr 3fr 1fr 3fr 1fr;
-    gap: 1rem;
-    padding: 1rem;
+    grid-template-columns: 100px 3fr 100px 3fr 100px 3fr 100px;
+    gap: 2rem;
+    padding: 2rem;
 
     .point-container{
         display: flex;
@@ -16,7 +16,7 @@
         aspect-ratio: 1/1;
         width: 100%;
         border-radius: 100%;
-        transition: all 0.5s 2s;
+        transition: all 0.25s 0.25s;
 
         &.active{
             background-position: left;
@@ -30,6 +30,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            font-weight: 800;
         }
     }
     .line{
@@ -39,12 +40,12 @@
         background-size:  200% 100%;
         background-position: right;
         align-self: center;
-        transition: all 2s ease;
+        transition: all 0.25s ease;
 
         &.active{
             background-position: left;
         }
     }
 
-    
+
 }

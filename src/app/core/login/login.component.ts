@@ -4,7 +4,6 @@ import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angula
 import { TextComponent } from '../../shared/input/text/text.component';
 import { PasswordComponent } from '../../shared/input/password/password.component';
 import { ButtonComponent } from '../../shared/input/button/button.component';
-import { ThemeComponent } from '../../shared/theme/theme.component';
 import { AuthenticationService } from '../../service/security/authentication.service';
 import { RequestAuthentication } from '../../interface/security/requestAuthentication.interface';
 import { MessageService } from '../../service/utils/message.service';
@@ -15,7 +14,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextComponent, PasswordComponent, ButtonComponent, ThemeComponent],
+  imports: [CommonModule, ReactiveFormsModule, TextComponent, PasswordComponent, ButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
