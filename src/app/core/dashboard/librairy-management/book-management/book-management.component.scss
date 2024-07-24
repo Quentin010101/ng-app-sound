@@ -1,0 +1,19 @@
+#center-content{
+    display: flex;
+    gap: 1rem;
+
+    .chip-container{
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .array-container{
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .image-container{
+        height: 183px;
+        width: 128px !important;
+    }
+}

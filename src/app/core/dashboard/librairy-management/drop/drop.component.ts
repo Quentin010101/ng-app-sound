@@ -19,12 +19,15 @@ export class DropComponent {
   private activeRoute = inject(ActivatedRoute)
   hover: boolean = false
 
-  extensionAllowed: string[] = ['png', 'jpg']
+  extensionAllowed: string[] = []
   nbDirMax: number = 5
   directory: DirectoryContainer | null = null
   securityCount: number = 0
 
   constructor(){
+    this._bookManagementService.extensionAllowed.subscribe((response)=> {
+      this.extensionAllowed = response
+    })
     this._bookManagementService.state.next(1)
   }
 
@@ -32,11 +35,9 @@ export class DropComponent {
     event.preventDefault()
     event.stopPropagation()
     if(event.dataTransfer && event.dataTransfer.items){
-      console.log(new Date().getTime())
       this._bookManagementService.newFileSubject.next(event.dataTransfer.items)
       this._bookManagementService.newDirectorySubject.subscribe(response => {
         if(response){
-          console.log(new Date().getTime())
           this.router.navigate(['choice'] , {relativeTo: this.activeRoute.parent})
         }
       })

@@ -9,7 +9,7 @@
       <div id="info">
         @if(filesList && filesList.files.length > 0){
           <p>Number of files: {{ filesList.files.length }}</p>
-          <p>Total size: {{ (filesList.size/1000).toFixed(2) }} ko</p>
+          <p>Total size: {{ (filesList.size/1000000).toFixed(2) }} mo</p>
         }
       </div>
       <div id="container">

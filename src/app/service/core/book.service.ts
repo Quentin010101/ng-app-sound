@@ -41,7 +41,15 @@ export class BookService {
   }
 
   private getExtentionAllowed():Observable<string[]>{
-    return this.http.get<string[]>(this.url + 'get/extensionallowed')
+    return this.http.get<string[]>(this.url + 'get/extentionallowed')
+  }
+
+  initExtension(){
+    return this.getExtentionAllowed()
+  }
+
+  getAllBooks(){
+    return this.getAll()
   }
 
 

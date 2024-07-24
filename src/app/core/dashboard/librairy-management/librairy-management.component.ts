@@ -25,7 +25,6 @@ export class LibrairyManagementComponent {
 
   ngAfterViewInit(){
     this._bookManagementService.state.subscribe(number => {
-      console.log()
       if(number && this.state != number) this.state = number
     })
   }

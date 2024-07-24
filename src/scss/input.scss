@@ -6,7 +6,7 @@ $height-area: 6.75rem;
 $radius: 0.25rem;
 
 .input-container:has(input){
-    width: 15rem;
+    max-width: 15rem;
 }
 .input-container:has(textarea){
     max-width: 35rem;

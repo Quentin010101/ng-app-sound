@@ -12,9 +12,7 @@ import { AuthenticationService } from '../service/security/authentication.servic
 export function requestInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
   const _authenticationService = inject(AuthenticationService);
 
-  console.log("testtt")
   if(_authenticationService.getUserIsAuthenticated && _authenticationService.getUserHasToken){
-    console.log("testtt2")
 
     const headers = new HttpHeaders({
       Authorization:  `Bearer ${_authenticationService.getToken}`
