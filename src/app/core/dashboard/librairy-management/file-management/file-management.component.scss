@@ -1,0 +1,42 @@
+.p-folder, .p-file{
+    display:flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.p-folder{
+    font-size: 0.9rem;
+}
+.p-file{
+    font-size: 0.8rem;
+}
+
+#container{
+    display: flex;
+    gap: 1rem;
+
+    #folder, #result{
+        padding: 1rem;
+        background-color: var(--bg-1);
+        border-radius: 0.5rem;
+    }
+}
+#confirmation{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+#info{
+    padding: 1rem;
+    background-color: var(--bg-1);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+
+    p{
+        font-size: 0.8em;
+        font-weight: 500;
+    }
+}
+#wrapper{
+    width: fit-content;
+}

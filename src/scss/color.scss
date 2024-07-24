@@ -72,6 +72,10 @@ body[data-theme='dark']{
     --text-4: #{darken($text, 20%)};
     --text-5: #{darken($text, 30%)};
     --text-6: #{darken($text, 35%)};
+    --text-invert-1: #{darken($text, 80%)};
+    --text-invert-2: #{darken($text, 70%)};
+    --text-invert-3: #{darken($text, 65%)};
+    --text-invert-4: #{darken($text, 60%)};
 
     --shadow: #{2px 2px 5px 1px transparentize($text, 0.5)};
 }

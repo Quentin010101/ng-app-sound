@@ -1,16 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { BookManagementService } from '../../../../service/api/book-management.service';
-import { DirectoryContainer } from '../../../../interface/bookApi/bookContainer.interface';
+import { DirectoryContainer, FileContainer, FileListContainer } from '../../../../interface/bookApi/bookContainer.interface';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { TextComponent } from '../../../../shared/input/text/text.component';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../../../shared/icon/icon.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IconNamePipe } from '../../../../pipe/icon-name.pipe';
 
 @Component({
   selector: 'app-file-management',
   standalone: true,
-  imports: [ReactiveFormsModule, TextComponent, CommonModule, IconComponent],
+  imports: [ReactiveFormsModule, TextComponent, CommonModule, IconComponent, IconNamePipe],
   templateUrl: './file-management.component.html',
   styleUrl: './file-management.component.scss'
 })
@@ -20,6 +21,7 @@ export class FileManagementComponent {
   private activeRoute = inject(ActivatedRoute)
   
   directory: DirectoryContainer | null = null
+  filesList: FileListContainer | null = null
 
 
   constructor(){
@@ -30,6 +32,9 @@ export class FileManagementComponent {
 
       this._bookManagementService.newDirectorySubject.subscribe(directory => {
         this.directory = directory
+      })
+      this._bookManagementService.newFileListSubject.subscribe(filesList => {
+        this.filesList = filesList
       })
     }
   }

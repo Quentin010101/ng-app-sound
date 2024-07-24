@@ -1,6 +1,14 @@
-<div id="dropzone">
-    <input type="file" webkitdirectory (drop)="onDrop($event)"  />
+<div>
+    <h4 class="h4">Drop zone:</h4>
+    <div class="zone-padding">
+        <div id="dropzone" [ngClass]="{'hover':hover}" (click)="onclick($event)">
+            <input type="file" webkitdirectory (drop)="onDrop($event)" (dragover)="onDragOver($event)"
+                (dragleave)="onDragLeave($event)" />
+            <div class="text">
+                <app-icon icon="upload" [solid]="false" [color]="false" size="3.5rem"></app-icon>
+                <h5>Upload audio book here</h5>
+                <h6>Drag and drop folder</h6>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-

@@ -1,0 +1,10 @@
+@if(text){
+    <div id="chip">
+        <p>{{ text }}</p>
+        @if(action){
+            <div id="cross">
+                <app-icon icon="cross" [solid]="true" [color]="false" size="0.9rem"></app-icon>
+            </div>
+        }
+    </div>
+}

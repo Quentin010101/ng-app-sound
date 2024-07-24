@@ -1,19 +1,24 @@
-<form [formGroup]="newBookForm">
-    <input-text icon="book" label="title" [control]="newBookForm.controls.title"></input-text>
-    <ng-container formArrayName="authors">
-        @for(author of authors.value; track $index){
-            <p>{{ author.name }}</p>
-        }
-    </ng-container>
-    <ng-container formArrayName="categories">
-        @for(category of categories.value; track $index){
-            <p>{{ category.name }}</p>
-        }
-    </ng-container>
-    @if(imagePath.value){
-        <img [src]="imagePath.value" alt="image">
-    }@else if(imageThumbnailPath.value){
-        <img [src]="imageThumbnailPath.value" alt="thumbnail">
-    }
-    <input-textarea icon="lock" label="description" [control]="newBookForm.controls.description"></input-textarea>
-</form>
+<div>
+    <h4 class="h4">Book management:</h4>
+    <div class="zone-padding">
+        <form [formGroup]="newBookForm">
+            <input-text icon="book" label="title" [control]="newBookForm.controls.title"></input-text>
+            <ng-container formArrayName="authors">
+                @for(author of authors.value; track $index){
+                    <app-chip [action]="true" [text]="author.name"></app-chip>
+                }
+            </ng-container>
+            <ng-container formArrayName="categories">
+                @for(category of categories.value; track $index){
+                    <app-chip [action]="true" [text]="category.name"></app-chip>
+                }
+            </ng-container>
+            @if(imagePath.value){
+                <img [src]="imagePath.value" alt="image">
+            }@else if(imageThumbnailPath.value){
+                <img [src]="imageThumbnailPath.value" alt="thumbnail">
+            }
+            <input-textarea icon="lock" label="description" [control]="newBookForm.controls.description"></input-textarea>
+        </form>
+    </div>
+</div>

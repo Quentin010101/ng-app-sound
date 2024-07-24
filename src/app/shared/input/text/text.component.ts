@@ -15,6 +15,7 @@ export class TextComponent {
   @Input() label: string | null = null
   @Input() placeholder: string = ''
   @Input() icon: string = ''
+  @Input() width: string | null = null
 
   public focus: boolean = false
 

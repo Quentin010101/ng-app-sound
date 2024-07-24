@@ -1,8 +1,8 @@
-import { DirectoryContainer, FileContainer } from "../../interface/bookApi/bookContainer.interface";
+import { DirectoryContainer, FileContainer, FileListContainer } from "../../interface/bookApi/bookContainer.interface";
 
 
 
-export function handleDataTransferList(list: DataTransferItemList): Promise<DirectoryContainer | null>{
+export async function handleDataTransferList(list: DataTransferItemList): Promise<DirectoryContainer | null>{
 
 let directory: DirectoryContainer | null = null
 
@@ -28,19 +28,50 @@ function scanItems(item: FileSystemEntry, dir: DirectoryContainer | null) : Prom
     }
   })
 }
- return Promise.all(Array.from(list, item => scanItems(item.webkitGetAsEntry() as FileSystemEntry, null))).then(function() {
-        return directory
-      })
+ await Promise.all(Array.from(list, item_2 => scanItems(item_2.webkitGetAsEntry() as FileSystemEntry, null)));
+  return directory;
 
 }
 
-function handleFile(entry: FileSystemFileEntry, dir: DirectoryContainer | null){
+async function handleFile(entry: FileSystemFileEntry, dir: DirectoryContainer | null){
   let extension = entry.name.split('.').pop()
   let file: File | null = null
-
+  file = await getFile(entry)
   let thisFile = new FileContainer(entry.name, entry.fullPath, extension,file)
   if(dir){
     dir.files.push(thisFile)
   }
-  
+}
+
+async function getFile(fileEntry: FileSystemFileEntry) : Promise<File>{
+  return new Promise((resolve, reject) => fileEntry.file(resolve, reject));
+}
+
+export function generateList(dir: DirectoryContainer): FileListContainer{
+  console.log(dir)
+  let container: FileListContainer = new FileListContainer()
+  getDirectoryFiles(dir, container)
+  return container
+}
+
+function getDirectoryFiles(dir: DirectoryContainer, container: FileListContainer){
+  console.log(dir.name)
+  console.log(dir)
+  addFileToList(dir.files, container)
+  if(dir.directories.length > 0){
+    dir.directories.forEach((d) => {
+      getDirectoryFiles(d, container)
+    })
+  }
+}
+
+function addFileToList(files: FileContainer[], container: FileListContainer){
+  console.log(files)
+  files.forEach((f)=>{
+    if(f.extension == 'png'){
+        container.files.push(f)
+        container.size += f.file? f.file?.size : 0
+
+    }
+  })
 }

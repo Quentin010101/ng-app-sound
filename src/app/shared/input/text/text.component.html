@@ -1,4 +1,4 @@
-<div class="input-container">
+<div class="input-container" [ngStyle]="{'width': width? width : '15rem'}">
     @if(label){
         <label>{{ label }}</label>
     }

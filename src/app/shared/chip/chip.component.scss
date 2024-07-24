@@ -1,0 +1,25 @@
+@import '../../../scss/color.scss';
+
+#chip{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+
+    width: fit-content;
+    background-color: var(--primary);
+    color: var(--text-invert-1);
+    padding: 0.20rem 0.40rem;
+    font-size: 0.9em;
+    border-radius: 0.75rem;
+
+    #cross{
+        border-radius: 100%;
+        cursor: pointer;
+        padding: 0.1rem;
+
+        &:hover{
+            background-color: var(--primary-2);
+        }
+    }
+}

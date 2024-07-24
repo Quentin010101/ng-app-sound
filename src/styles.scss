@@ -1,6 +1,7 @@
 @import './scss/color.scss';
 @import './scss/sharp.scss';
 @import './scss/input.scss';
+@import './scss/typographie.scss';
 
 *{
     padding: 0;
@@ -9,4 +10,9 @@
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;background-color: var(--bg);color:var(--text);}
-
+.page{
+    padding: 1rem;
+}
+.zone-padding{
+    padding: 0.5rem;
+}

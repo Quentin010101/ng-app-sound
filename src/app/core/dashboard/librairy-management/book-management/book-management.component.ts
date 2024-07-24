@@ -7,11 +7,12 @@ import { BookManagementService } from '../../../../service/api/book-management.s
 import { ActivatedRoute, Router } from '@angular/router';
 import { TextareaComponent } from '../../../../shared/input/textarea/textarea.component';
 import { Category } from '../../../../interface/core/category.interface';
+import { ChipComponent } from '../../../../shared/chip/chip.component';
 
 @Component({
   selector: 'app-book-management',
   standalone: true,
-  imports: [ReactiveFormsModule,TextComponent, TextareaComponent],
+  imports: [ReactiveFormsModule,TextComponent, TextareaComponent, ChipComponent],
   templateUrl: './book-management.component.html',
   styleUrl: './book-management.component.scss'
 })

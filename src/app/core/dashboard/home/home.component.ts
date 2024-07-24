@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChipComponent } from '../../../shared/chip/chip.component';
 
 @Component({
   selector: 'app-home',

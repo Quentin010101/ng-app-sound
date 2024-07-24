@@ -1,23 +1,27 @@
-<form [formGroup]="newTitleForm" (ngSubmit)="onFormulaireSubmit()">
-    <input-text icon="pencil" label="title" [control]="newTitleForm.controls.title"></input-text>
-</form>
-
-@if(loading){
-  <app-loader></app-loader>
-}
-@else {
-  <div>
+<div>
+  <h4 class="h4">Book api:</h4>
+  <div class="zone-padding">
+    <form [formGroup]="newTitleForm" (ngSubmit)="onFormulaireSubmit()">
+      <input-text icon="pencil" label="title" [control]="newTitleForm.controls.title"></input-text>
+    </form>
+    @if(loading){
+    <app-loader></app-loader>
+    }
+    @else {
+    <h5 class="h5">Select a book:</h5>
+    <div id="selection">
       @for(volume of apiResponse;track $index){
-        <button (click)="onBookChoosen(volume)">
-          <p><span>Title:</span> {{ volume.title }}</p>
-          <p><span>Authors:</span>
-              @for(author of volume.authors; track $index){
-                  {{ author }}
-              }
-
-          </p>
-        </button>
+      <button (click)="onBookChoosen(volume)">
+        <p><span>Title:</span> {{ volume.title }}</p>
+        <p><span>Authors:</span>
+          @for(author of volume.authors; track $index){
+          {{ author }}
+          }
+        </p>
+      </button>
 
       }
+    </div>
+    }
   </div>
-}
+</div>

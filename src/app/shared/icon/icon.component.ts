@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { heroUser, heroLockClosed, heroPaperAirplane , heroArrowRight, heroAdjustmentsHorizontal, heroHome, heroPencil, heroBookOpen, heroPower, heroMusicalNote, heroFolder, heroCheck } from '@ng-icons/heroicons/outline';
-import { heroUserSolid, heroLockClosedSolid, heroPaperAirplaneSolid  , heroArrowRightSolid, heroAdjustmentsHorizontalSolid, heroHomeSolid, heroPencilSolid, heroBookOpenSolid, heroPowerSolid, heroMusicalNoteSolid, heroFolderSolid, heroCheckSolid } from '@ng-icons/heroicons/solid';
+import { heroUser, heroLockClosed, heroPaperAirplane , heroArrowRight, heroAdjustmentsHorizontal, heroHome, heroPencil, heroBookOpen, heroPower, heroMusicalNote, heroFolder,
+   heroCheck, heroArrowDownTray, heroXMark, heroPhoto, heroDocumentText } from '@ng-icons/heroicons/outline';
+import { heroUserSolid, heroLockClosedSolid, heroPaperAirplaneSolid  , heroArrowRightSolid, heroAdjustmentsHorizontalSolid, heroHomeSolid, heroPencilSolid, heroBookOpenSolid,
+   heroPowerSolid, heroMusicalNoteSolid, heroFolderSolid, heroCheckSolid, heroArrowDownTraySolid, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid } from '@ng-icons/heroicons/solid';
 import { NgIconComponent , provideIcons } from '@ng-icons/core';
 
 @Component({
@@ -10,7 +12,8 @@ import { NgIconComponent , provideIcons } from '@ng-icons/core';
   imports: [CommonModule, NgIconComponent],
   providers: [provideIcons({ heroUser, heroUserSolid, heroLockClosed, heroLockClosedSolid, heroPaperAirplane, heroPaperAirplaneSolid,
     heroArrowRight, heroArrowRightSolid, heroAdjustmentsHorizontal, heroAdjustmentsHorizontalSolid, heroHome, heroHomeSolid,heroPencil, heroBookOpen,
-    heroPencilSolid, heroBookOpenSolid, heroPower, heroPowerSolid, heroMusicalNote, heroFolder, heroMusicalNoteSolid, heroFolderSolid, heroCheck, heroCheckSolid
+    heroPencilSolid, heroBookOpenSolid, heroPower, heroPowerSolid, heroMusicalNote, heroFolder, heroMusicalNoteSolid, heroFolderSolid, heroCheck, heroCheckSolid,
+    heroArrowDownTray, heroArrowDownTraySolid, heroXMark, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid, heroPhoto, heroDocumentText
    })],
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss'
@@ -42,6 +45,10 @@ export class IconComponent {
       case 'folder' : this.name = 'heroFolder'; this.nameSolid = 'heroFolderSolid'; break;
       case 'musique' : this.name = 'heroMusicalNote'; this.nameSolid = 'heroMusicalNoteSolid'; break;
       case 'check' : this.name = 'heroCheck'; this.nameSolid = 'heroCheckSolid'; break;
+      case 'upload' : this.name = 'heroArrowDownTray'; this.nameSolid = 'heroArrowDownTraySolid'; break;
+      case 'cross' : this.name = 'heroXMark'; this.nameSolid = 'heroXMarkSolid'; break;
+      case 'photo' : this.name = 'heroPhoto'; this.nameSolid = 'heroPhotoSolid'; break;
+      case 'document' : this.name = 'heroDocumentText'; this.nameSolid = 'heroDocumentTextSolid'; break;
       default: break;
     }
     
