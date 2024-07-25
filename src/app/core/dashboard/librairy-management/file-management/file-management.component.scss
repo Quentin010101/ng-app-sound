@@ -14,33 +14,25 @@ $gap: 1rem;
     font-size: 0.8rem;
 }
 
-#container{
-    display: flex;
-    gap: $gap;
 
-    #folder, #result{
-        padding: $height $width;
-        background-color: var(--bg-1);
-        border-radius: 0.5rem;
-    }
-}
 #confirmation{
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
 }
-#info{
-    padding: $height $width;
-    background-color: var(--bg-1);
-    border-radius: 0.5rem;
-    margin-bottom: $gap;
-
+#info, #folder, #result{
     p{
         font-size: 0.8em;
         font-weight: 500;
     }
 }
+#info{
+    grid-column: 1 / span 2;
+}
 #wrapper{
-    width: fit-content;
+    display:grid;
+    gap: $gap;
+    grid-template-columns: 1fr 1fr;
+
 }

@@ -2,28 +2,36 @@
     <nav>
         <ul>
             <li>
-                <a routerLink="home">
+                <a routerLink="home" routerLinkActive="active">
                     <app-icon size="1.3rem" icon="home"></app-icon>
-                    Home
+                    <div>
+                        Home
+                    </div>
                 </a>
             </li>
             <li>
-                <a routerLink="librairy">
+                <a routerLink="librairy" routerLinkActive="active">
                     <app-icon size="1.3rem" icon="book"></app-icon>
-                    Librairy
+                    <div>
+                        Librairy
+                    </div>
                 </a>
             </li>
             @if(isAdmin){
                 <li>
-                    <a routerLink="librairy-management">
+                    <a routerLink="librairy-management" routerLinkActive="active">
                         <app-icon size="1.3rem" icon="pencil"></app-icon>
-                        Librairy Management
+                        <div>
+                            Librairy Management
+                        </div>
                     </a>
                 </li>
                 <li>
-                    <a routerLink="api-settings">
+                    <a routerLink="api-settings" routerLinkActive="active">
                         <app-icon size="1.3rem" icon="setting"></app-icon>
-                        Api Settings
+                        <div>
+                            Api Settings
+                        </div>
                     </a>
                 </li>
             }

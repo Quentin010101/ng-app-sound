@@ -2,39 +2,62 @@
     <h4 class="h4">Book management:</h4>
     <div class="zone-padding">
         <form [formGroup]="newBookForm">
-            <input-text icon="book" label="title" width="35rem" [control]="newBookForm.controls.title"></input-text>
-            <div id="center-content">
-                <div class="image-container">
-                    @if(imagePath.value){
+            <app-card id="input">
+                <input-text icon="book" label="title" width="35rem" [control]="newBookForm.controls.title"></input-text>
+                <input-textarea icon="lock" label="description"
+                    [control]="newBookForm.controls.description"></input-textarea>
+            </app-card>
+            <app-card id="center-content">
+                <label for="">Content</label>
+                <div id="other">
+                    <div class="image-container">
+                        @if(imagePath.value){
                         <img [src]="imagePath.value" alt="image">
-                    }@else if(imageThumbnailPath.value){
+                        }@else if(imageThumbnailPath.value){
                         <img [src]="imageThumbnailPath.value" alt="thumbnail">
-                    }
-                </div>
-                <div class="array-container">
-                    <div>
-                        <h5 class="h5">Authors:</h5>
-                        <div class="chip-container">
-                            <ng-container formArrayName="authors">
-                                @for(author of authors.value; track $index){
-                                    <app-chip [action]="true" [text]="author.name"></app-chip>
-                                }
-                            </ng-container>
+                        }
+                    </div>
+                    <div class="array-container">
+                        <div>
+                            <h5 class="h5">Authors:</h5>
+                            <div class="chip-container">
+                                <ng-container formArrayName="authors">
+                                    @for(author of authors.value; track $index){
+                                    <app-chip [action]="true" [text]="author.name"
+                                        (chipEmiter)="deleteAuthor($index)"></app-chip>
+                                    }@empty {
+                                    <small><i>No author found.</i></small>
+                                    }
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="h5">Categories:</h5>
+                            <div class="chip-container">
+                                <ng-container formArrayName="categories">
+                                    @for(category of categories.value; track $index){
+                                    <app-chip [action]="true" [text]="category.name"
+                                        (chipEmiter)="deleteCategory($index)"></app-chip>
+                                    }@empty{
+                                    <small><i>No category found.</i></small>
+                                    }
+                                </ng-container>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h5 class="h5">Categories:</h5>
-                        <div class="chip-container">
-                            <ng-container formArrayName="categories">
-                                @for(category of categories.value; track $index){
-                                    <app-chip [action]="true" [text]="category.name"></app-chip>
-                                }
-                            </ng-container>
-                        </div>
-                    </div>
                 </div>
-            </div>
-            <input-textarea icon="lock" label="description" [control]="newBookForm.controls.description"></input-textarea>
+            </app-card>
         </form>
+        <div style="margin-top: 1rem;">
+            <app-card>
+                <ng-container>
+                    @for(chapter of chapters.value; track $index){
+                        <small><p><span>Chapter {{$index}}: </span>{{ chapter.name }}</p></small>
+                    }@empty {
+                    <small><i>No chapter found</i></small>
+                    }
+                </ng-container> 
+            </app-card>
+        </div>
     </div>
 </div>

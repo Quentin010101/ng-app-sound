@@ -8,11 +8,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TextareaComponent } from '../../../../shared/input/textarea/textarea.component';
 import { Category } from '../../../../interface/core/category.interface';
 import { ChipComponent } from '../../../../shared/chip/chip.component';
+import { CardComponent } from '../../../../shared/card/card.component';
+import { FileContainer, FileListContainer } from '../../../../interface/bookApi/bookContainer.interface';
+import { MessageService } from '../../../../service/utils/message.service';
+import { Message } from '../../../../interface/utils/message.interface';
 
 @Component({
   selector: 'app-book-management',
   standalone: true,
-  imports: [ReactiveFormsModule,TextComponent, TextareaComponent, ChipComponent],
+  imports: [ReactiveFormsModule,TextComponent, TextareaComponent, ChipComponent, CardComponent],
   templateUrl: './book-management.component.html',
   styleUrl: './book-management.component.scss'
 })
@@ -20,19 +24,34 @@ export class BookManagementComponent {
   private _bookManagementService = inject(BookManagementService)
   private router = inject(Router)
   private activeRoute = inject(ActivatedRoute)
+  private _messageService = inject(MessageService)
+
+  filesList: FileListContainer| null = null
   
   constructor(){
+    console.log("construct")
     if(!this._bookManagementService.serviceInit) {
       this.redirectToRoot()
     }else{
     this._bookManagementService.state.next(4)
+    this._bookManagementService.newFileListSubject.subscribe(filesList => {
+      console.log(filesList)
+      this.filesList = filesList
+    })
     }
   }
 
   ngOnInit(){
     this._bookManagementService.newVolumeSubject.subscribe(volume => {
       if(volume){
-        this.fillFormulaire(volume)
+        if(this.filesList){
+          this.fillFormulaire(volume)
+        }else{
+          let message = new Message("Erreur: File not found.")
+          message.error = true
+          this._messageService.$messageSubject.next(message)
+          this.redirectToRoot()
+        }
       }
     })
   }
@@ -46,7 +65,7 @@ export class BookManagementComponent {
     }),
     authors: new FormArray([]),
     categories: new FormArray([]),
-    // chapters: new FormArray([]) 
+    chapters: new FormArray([]) 
   })
 
   private fillFormulaire(volumeInfo: VolumeInfo){
@@ -56,6 +75,7 @@ export class BookManagementComponent {
     this.newBookForm.get('image')?.get('imageThumbnailPath')?.setValue(volumeInfo.imageLinks.smallThumbnail ? volumeInfo.imageLinks.smallThumbnail : '')
     this.addAuthors(volumeInfo.authors ? volumeInfo.authors : [])
     this.addCategories(volumeInfo.categories ? volumeInfo.categories : [])
+    if(this.filesList) this.addChapters(this.filesList)
   }
 
   private addAuthor(author: Author){
@@ -73,11 +93,21 @@ export class BookManagementComponent {
     this.categories.push(auth)
   }
 
+  private addChapter(container: FileContainer){
+    const chapter = new FormGroup({
+      name: new FormControl(container.name, [Validators.minLength(3), Validators.maxLength(50)])
+    })
+    this.chapters.push(chapter)
+  }
+
   get authors(): FormArray{
     return this.newBookForm.get('authors') as FormArray
   }
   get categories(): FormArray{
     return this.newBookForm.get('categories') as FormArray
+  }
+  get chapters(): FormArray{
+    return this.newBookForm.get('chapters') as FormArray
   }
   get imagePath(): FormControl{
     return this.newBookForm.get('image')?.get('imagePath') as FormControl
@@ -87,6 +117,12 @@ export class BookManagementComponent {
   }
 
 
+
+  private addChapters(array: FileListContainer){
+    for(let i = 0; i < array.files.length; i++){
+      this.addChapter(array.files[i])
+    }
+  }
 
   private addAuthors(array: string[]){
     for(let i = 0; i < array.length; i++){
@@ -123,5 +159,13 @@ export class BookManagementComponent {
 
   private redirectToRoot(){
     this.router.navigate(['drop'] , {relativeTo: this.activeRoute.parent})
+  }
+
+  deleteAuthor(i:number){
+    console.log("delete author")
+    this.authors.removeAt(i)
+  }
+  deleteCategory(i:number){
+    this.categories.removeAt(i)
   }
 }

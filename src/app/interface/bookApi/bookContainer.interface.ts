@@ -26,6 +26,6 @@ export class DirectoryContainer{
   }
 
   export class FileListContainer{
-    files: FileContainer[] = [];
     size: number = 0
+    files: FileContainer[] = [];
   }

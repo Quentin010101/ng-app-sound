@@ -4,10 +4,29 @@ nav{
         padding: 0;
         li{
             list-style: none;
+            margin-bottom: 1rem;
+            color: var(--text-5);
+            transition: color 0.2s ease;
+            padding: 1rem 0;
+            border-left: solid transparent 5px;
             a{
                 text-decoration: none;
                 display: flex;
                 gap: 0.5rem;
+                color: inherit;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            &:hover{
+                color: var(--text);
+            }
+
+            &:has(.active){
+                border-left: solid var(--primary) 5px;
+                color: var(--text);
             }
         }
     }

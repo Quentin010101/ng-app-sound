@@ -14,5 +14,7 @@ export class ChipComponent {
   @Input() action: boolean = false
   @Output() chipEmiter = new EventEmitter<boolean>()
 
-
+  delete(){
+    this.chipEmiter.emit(true)
+  }
 }

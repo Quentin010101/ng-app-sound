@@ -7,11 +7,12 @@ import { CommonModule } from '@angular/common';
 import { IconComponent } from '../../../../shared/icon/icon.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IconNamePipe } from '../../../../pipe/icon-name.pipe';
+import { CardComponent } from '../../../../shared/card/card.component';
 
 @Component({
   selector: 'app-file-management',
   standalone: true,
-  imports: [ReactiveFormsModule, TextComponent, CommonModule, IconComponent, IconNamePipe],
+  imports: [ReactiveFormsModule, TextComponent, CommonModule, IconComponent, IconNamePipe, CardComponent],
   templateUrl: './file-management.component.html',
   styleUrl: './file-management.component.scss'
 })
