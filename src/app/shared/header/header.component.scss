@@ -4,17 +4,41 @@ header{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid var(--text-invert-1);
 
     button{
         border: none;
         outline: none;
         background-color: transparent;
         cursor: pointer;
-        height: 2rem;
-        width: 2.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        border-radius: 100%;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: var(--text);
     
+        &:hover{
+            background-color: var(--bg-1);
+        }
+    
+    }
+
+    #title{
+        h1{
+            font-family: "Playwrite AR", cursive;
+            color: var(--text-4);
+            font-size: 1.6em;
+            span{
+                font-size: 1.3em;
+                color: var(--text-2);
+            }
+        }
+    }
+
+    #action{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 }

@@ -1,0 +1,10 @@
+div{
+    border-radius: 100%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover{
+        background-color: var(--bg-1);
+    }
+}

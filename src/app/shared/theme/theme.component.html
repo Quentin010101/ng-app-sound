@@ -1,1 +1,7 @@
-<input type="checkbox" name="" id="" (change)="onClick($event)">
+<div (click)="onClick()">
+    @if(light){
+        <app-icon icon="sun" size="1.3rem"></app-icon>
+    }@else{
+        <app-icon icon="moon" size="1.1rem"></app-icon>
+    }
+</div>

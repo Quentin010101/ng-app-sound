@@ -23,7 +23,7 @@
                             <div class="chip-container">
                                 <ng-container formArrayName="authors">
                                     @for(author of authors.value; track $index){
-                                    <app-chip [action]="true" [text]="author.name"
+                                    <app-chip [action]="true" [text]="nameFormat(author)"
                                         (chipEmiter)="deleteAuthor($index)"></app-chip>
                                     }@empty {
                                     <small><i>No author found.</i></small>
@@ -49,15 +49,30 @@
             </app-card>
         </form>
         <div style="margin-top: 1rem;">
-            <app-card>
-                <ng-container>
-                    @for(chapter of chapters.value; track $index){
-                        <small><p><span>Chapter {{$index}}: </span>{{ chapter.name }}</p></small>
-                    }@empty {
-                    <small><i>No chapter found</i></small>
-                    }
-                </ng-container> 
+            <app-card (click)="chapterOpen = !chapterOpen" id="chapter">
+                <div>
+                    <small>
+                        <p>
+                            Click to see chapters 
+                            @if(chapterOpen){
+                                <app-icon icon="down"></app-icon>
+                            }@else{
+                                <app-icon icon="up"></app-icon>
+                            }
+                        </p>
+                    </small>
+                </div>
+                <div [ngStyle]="{'display': chapterOpen? 'none' : 'block'}">
+                    <ng-container>
+                        @for(chapter of chapters.value; track $index){
+                            <small><p><span>Chapter {{$index}}: </span>{{ chapter.name }}</p></small>
+                        }@empty {
+                        <small><i>No chapter found</i></small>
+                        }
+                    </ng-container> 
+                </div>
             </app-card>
         </div>
+        <button class="button" (click)="validate()" [disabled]="newBookForm.invalid"><p>Validate</p></button>
     </div>
 </div>

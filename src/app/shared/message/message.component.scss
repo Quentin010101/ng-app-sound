@@ -10,7 +10,7 @@
 
     .message{
         padding: 1.5rem 2.25rem;
-        border-left: solid 0.35rem var(--valid);
+        border-left: solid 0.55rem var(--valid);
         background-color: var(--bg-invert-2);
         color: var(--text-invert-3);
 
@@ -19,9 +19,7 @@
         }
 
         p{
-            font-size: 0.8em
+            font-size: 0.8em;
         }
-
-        box-shadow: var(--shadow);
     }
 }

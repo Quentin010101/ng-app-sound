@@ -12,11 +12,15 @@ import { CardComponent } from '../../../../shared/card/card.component';
 import { FileContainer, FileListContainer } from '../../../../interface/bookApi/bookContainer.interface';
 import { MessageService } from '../../../../service/utils/message.service';
 import { Message } from '../../../../interface/utils/message.interface';
+import { Book } from '../../../../interface/core/book.interface';
+import { Image } from '../../../../interface/core/image.interface';
+import { CommonModule } from '@angular/common';
+import { IconComponent } from '../../../../shared/icon/icon.component';
 
 @Component({
   selector: 'app-book-management',
   standalone: true,
-  imports: [ReactiveFormsModule,TextComponent, TextareaComponent, ChipComponent, CardComponent],
+  imports: [CommonModule, ReactiveFormsModule,TextComponent, TextareaComponent, ChipComponent, CardComponent, IconComponent],
   templateUrl: './book-management.component.html',
   styleUrl: './book-management.component.scss'
 })
@@ -27,15 +31,14 @@ export class BookManagementComponent {
   private _messageService = inject(MessageService)
 
   filesList: FileListContainer| null = null
+  chapterOpen: boolean = true
   
   constructor(){
-    console.log("construct")
     if(!this._bookManagementService.serviceInit) {
       this.redirectToRoot()
     }else{
     this._bookManagementService.state.next(4)
     this._bookManagementService.newFileListSubject.subscribe(filesList => {
-      console.log(filesList)
       this.filesList = filesList
     })
     }
@@ -58,7 +61,7 @@ export class BookManagementComponent {
 
   newBookForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
-    description: new FormControl('', [ Validators.minLength(5), Validators.maxLength(500)]),
+    description: new FormControl('', [ Validators.minLength(5), Validators.maxLength(5000)]),
     image: new FormGroup({
       imagePath: new FormControl(''),
       imageThumbnailPath: new FormControl('')
@@ -140,7 +143,7 @@ export class BookManagementComponent {
   private createAuthor(aut: string){
       let author = new Author()
       let split = aut.split(' ')
-      if(split.length = 1){
+      if(split.length == 1){
         author.name = aut
       }else if(split.length > 1){
         author.name = split.shift() as string
@@ -161,11 +164,43 @@ export class BookManagementComponent {
     this.router.navigate(['drop'] , {relativeTo: this.activeRoute.parent})
   }
 
+  private createBook(){
+
+    let book = new Book()
+
+    book.title = this.newBookForm.get('title')?.value as string
+    book.categories = this.categories.value
+    book.authors = this.authors.value
+    if(this.newBookForm.get('description')?.value)
+      book.description = this.newBookForm.get('description')?.value as string
+    if(this.newBookForm.get('image')?.value){
+      let image = new Image()
+      image.imagePath = this.imagePath.value
+      image.imageThumbnailPath = this.imageThumbnailPath.value
+      book.image = image
+    }
+
+    this._bookManagementService.$bookSubject.next(book)
+    this.router.navigate(['upload'] , {relativeTo: this.activeRoute.parent})
+  }
+
   deleteAuthor(i:number){
-    console.log("delete author")
     this.authors.removeAt(i)
   }
   deleteCategory(i:number){
     this.categories.removeAt(i)
+  }
+
+  validate(){
+    if(!this.newBookForm.invalid && this.filesList && this.filesList.files.length > 0){
+      this.createBook()
+    }
+  }
+
+  nameFormat(author: Author){
+    let response = ''
+    if(author.name) response = author.name
+    if(author.surname) response += ' ' + author.surname
+    return response
   }
 }

@@ -1,43 +1,61 @@
-#other{
+#other {
     display: flex;
     gap: 1rem;
 }
-    .chip-container{
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-    .array-container{
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-    .image-container{
-        height: 183px;
-        width: 128px !important;
-        overflow: hidden;
-    }
 
-form{
+
+.chip-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.array-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.image-container {
+    height: 183px;
+    width: 128px !important;
+    overflow: hidden;
+}
+
+form {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 
-    label{
+    label {
         font-size: 0.9em;
         font-weight: 400;
         margin-bottom: 0.5rem;
         display: block;
         letter-spacing: 0.05rem;
- 
-     }
+
+    }
 }
-#input{
+
+#input {
     flex-grow: 1;
     max-width: 35rem;
 }
 
-small p span{
+small p span {
     color: var(--text-3);
     font-weight: 600;
+}
+
+#chapter{
+    cursor: pointer;
+    p{
+        display: flex;
+        justify-content: space-between;
+        color: var(--text-1);
+    }
+}
+
+button.button{
+    margin-top: 1rem;
 }

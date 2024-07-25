@@ -1,4 +1,5 @@
 $width: 200px;
+$width2: 70px;
 
 #page{
     display:flex;
@@ -15,5 +16,17 @@ $width: 200px;
     #content{
         width: 100%;
         margin-left: calc($width + 1rem);
+    }
+}
+
+@media  (max-width: 800px){
+    #page{
+        #sidenav{
+            width: $width2;
+        }
+    
+        #content{
+            margin-left: calc($width2 + 1rem);
+        }
     }
 }

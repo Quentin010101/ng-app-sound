@@ -52,6 +52,10 @@ export class BookService {
     return this.getAll()
   }
 
+  save(book: Book){
+    return this.saveBook(book)
+  }
+
 
 
 }

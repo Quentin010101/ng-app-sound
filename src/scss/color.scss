@@ -6,6 +6,7 @@ body{
 
 
     --bg: #{$bg};
+    --bg-0-5: #{darken($bg, 2.5%)};
     --bg-1: #{darken($bg, 5%)};
     --bg-2: #{darken($bg, 10%)};
     --bg-3: #{darken($bg, 15%)};
@@ -50,6 +51,7 @@ body[data-theme='dark']{
     $text: invert($text);
 
     --bg: #{$bg};
+    --bg-0-5: #{lighten($bg, 2.5%)};
     --bg-1: #{lighten($bg, 5%)};
     --bg-2: #{lighten($bg, 10%)};
     --bg-3: #{lighten($bg, 15%)};
@@ -58,6 +60,10 @@ body[data-theme='dark']{
     --bg-6: #{lighten($bg, 30%)};
     --bg-7: #{lighten($bg, 40%)};
     --bg-8: #{lighten($bg, 50%)};
+    --bg-invert-1: #{lighten($bg, 80%)};
+    --bg-invert-2: #{lighten($bg, 70%)};
+    --bg-invert-3: #{lighten($bg, 65%)};
+    --bg-invert-4: #{lighten($bg, 60%)};
 
     --primary: #{$primary};
     --primary-1: #{darken($primary, 5%)};

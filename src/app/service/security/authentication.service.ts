@@ -87,7 +87,10 @@ export class AuthenticationService {
   }
 
   private clearLocalStorage(){
-    localStorage.clear()
+    localStorage.removeItem("userToken")
+    localStorage.removeItem("username")
+    localStorage.removeItem("expirationTime")
+    localStorage.removeItem("roles")
   }
 
   private resetAuthentication(){

@@ -1,12 +1,12 @@
 
 <header>
-    <div>
-        <h1>{{ username }}</h1>
+    <div id="title">
+        <h1>Welcome <span>{{ username | titlecase }}</span></h1>
     </div>
-    <div>
+    <div id="action">
       <app-theme></app-theme>
-      <button (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="logOut()">
-          <app-icon icon="power" [size]="hover? '1.5rem' : '1.3rem'"></app-icon>
+      <button (click)="logOut()">
+          <app-icon icon="power" size="1.3rem"></app-icon>
       </button>
     </div>
 </header>

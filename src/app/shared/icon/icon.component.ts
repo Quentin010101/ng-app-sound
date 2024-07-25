@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { heroUser, heroLockClosed, heroPaperAirplane , heroArrowRight, heroAdjustmentsHorizontal, heroHome, heroPencil, heroBookOpen, heroPower, heroMusicalNote, heroFolder,
-   heroCheck, heroArrowDownTray, heroXMark, heroPhoto, heroDocumentText } from '@ng-icons/heroicons/outline';
+   heroCheck, heroArrowDownTray, heroXMark, heroPhoto, heroDocumentText, heroSun, heroMoon, heroChevronUp, heroChevronDown } from '@ng-icons/heroicons/outline';
 import { heroUserSolid, heroLockClosedSolid, heroPaperAirplaneSolid  , heroArrowRightSolid, heroAdjustmentsHorizontalSolid, heroHomeSolid, heroPencilSolid, heroBookOpenSolid,
-   heroPowerSolid, heroMusicalNoteSolid, heroFolderSolid, heroCheckSolid, heroArrowDownTraySolid, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid } from '@ng-icons/heroicons/solid';
+   heroPowerSolid, heroMusicalNoteSolid, heroFolderSolid, heroCheckSolid, heroArrowDownTraySolid, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid, heroSunSolid, 
+   heroMoonSolid } from '@ng-icons/heroicons/solid';
 import { NgIconComponent , provideIcons } from '@ng-icons/core';
 
 @Component({
@@ -13,7 +14,8 @@ import { NgIconComponent , provideIcons } from '@ng-icons/core';
   providers: [provideIcons({ heroUser, heroUserSolid, heroLockClosed, heroLockClosedSolid, heroPaperAirplane, heroPaperAirplaneSolid,
     heroArrowRight, heroArrowRightSolid, heroAdjustmentsHorizontal, heroAdjustmentsHorizontalSolid, heroHome, heroHomeSolid,heroPencil, heroBookOpen,
     heroPencilSolid, heroBookOpenSolid, heroPower, heroPowerSolid, heroMusicalNote, heroFolder, heroMusicalNoteSolid, heroFolderSolid, heroCheck, heroCheckSolid,
-    heroArrowDownTray, heroArrowDownTraySolid, heroXMark, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid, heroPhoto, heroDocumentText
+    heroArrowDownTray, heroArrowDownTraySolid, heroXMark, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid, heroPhoto, heroDocumentText, heroSun, heroSunSolid,
+    heroMoon, heroMoonSolid, heroChevronUp, heroChevronDown
    })],
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss'
@@ -49,6 +51,10 @@ export class IconComponent {
       case 'cross' : this.name = 'heroXMark'; this.nameSolid = 'heroXMarkSolid'; break;
       case 'photo' : this.name = 'heroPhoto'; this.nameSolid = 'heroPhotoSolid'; break;
       case 'document' : this.name = 'heroDocumentText'; this.nameSolid = 'heroDocumentTextSolid'; break;
+      case 'sun' : this.name = 'heroSun'; this.nameSolid = 'heroSunSolid'; break;
+      case 'moon' : this.name = 'heroMoon'; this.nameSolid = 'heroMoonSolid'; break;
+      case 'up' : this.name = 'heroChevronUp'; this.nameSolid = 'heroChevronUp'; break;
+      case 'down' : this.name = 'heroChevronDown'; this.nameSolid = 'heroChevronDown'; break;
       default: break;
     }
     
