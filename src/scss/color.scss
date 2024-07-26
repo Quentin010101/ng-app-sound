@@ -1,4 +1,5 @@
 $text: rgb(41, 41, 41);
+$text1: rgb(10, 10, 10);
 
 body{
     $bg: rgb(235, 235, 235);
@@ -41,7 +42,7 @@ body{
     --text-invert-3: #{lighten($text, 65%)};
     --text-invert-4: #{lighten($text, 60%)};
 
-    --shadow: #{2px 2px 5px 1px transparentize($text, 0.5)};
+    --shadow: #{2px 2px 5px 3px transparentize($text, 0.8)};
 
 }
 
@@ -83,7 +84,7 @@ body[data-theme='dark']{
     --text-invert-3: #{darken($text, 65%)};
     --text-invert-4: #{darken($text, 60%)};
 
-    --shadow: #{2px 2px 5px 1px transparentize($text, 0.5)};
+    --shadow: #{2px 2px 5px 1px transparentize($text1, 0.5)};
 }
 
 .primary-color{

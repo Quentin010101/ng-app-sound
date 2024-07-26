@@ -56,6 +56,6 @@ export class BookManagementService {
   }
 
   private createAudioList(directory: DirectoryContainer){
-    this.newFileListSubject.next(generateList(directory))
+    this.newFileListSubject.next(generateList(directory, this.extensionAllowed.value))
   }
 }

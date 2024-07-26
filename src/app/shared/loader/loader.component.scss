@@ -1,14 +1,62 @@
 div{
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  height: 40px;
   width: fit-content;
+}
+div.lg{
+  height: 40px;
+  gap: 0.5rem;
+}
+div.md{
+  height: 30px;
+  gap: 0.37rem;
+}
+div.sm{
+  height: 20px;
+  gap: 0.25rem;
+}
+
+.lg .loader{
+  height: 40px;
+  width: 7px;
+  &.l1{
+    animation: animloader1 0.8s 0s linear infinite alternate;
+  }
+  &.l2{
+    animation: animloader1 0.8s 0.3s linear infinite alternate;
+  }
+  &.l3{
+    animation: animloader1 0.8s 0.6s linear infinite alternate;
+  }
+}
+.md .loader{
+  height: 30px;
+  width: 5px;
+  &.l1{
+    animation: animloader2 0.8s 0s linear infinite alternate;
+  }
+  &.l2{
+    animation: animloader2 0.8s 0.3s linear infinite alternate;
+  }
+  &.l3{
+    animation: animloader2 0.8s 0.6s linear infinite alternate;
+  }
+}
+.sm .loader{
+  height: 20px;
+  width: 3px;
+  &.l1{
+    animation: animloader3 0.8s 0s linear infinite alternate;
+  }
+  &.l2{
+    animation: animloader3 0.8s 0.3s linear infinite alternate;
+  }
+  &.l3{
+    animation: animloader3 0.8s 0.6s linear infinite alternate;
+  }
 }
 
 .loader {
-  width: 8px;
-  height: 40px;
   border-radius: 4px;
   display: block;
   position: relative;
@@ -30,7 +78,15 @@ div{
   animation-delay: 0s;
 }
 
-@keyframes animloader {
+@keyframes animloader1 {
   0%   { height: 40px}
   100% { height: 4px}
+}
+@keyframes animloader2 {
+  0%   { height: 30px}
+  100% { height: 3px}
+}
+@keyframes animloader3 {
+  0%   { height: 20px}
+  100% { height: 2px}
 }

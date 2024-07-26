@@ -1,20 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environnement } from '../../../environnement';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Book } from '../../interface/core/book.interface';
 import { Category } from '../../interface/core/category.interface';
 import { Author } from '../../interface/core/author.interface';
+
+const TIME_LIMIT = 1000 * 60
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
   private http = inject(HttpClient)
-
   private url = environnement.backend_url + "book/"
+
+
+  private $booksSubject = new BehaviorSubject<Book[]>([])
+  private lastUpdate!: Date;
   
-  constructor() { }
+  constructor() {
+    this.initBooks()
+    this.lastUpdate = new Date()
+   }
 
   private saveBook(book: Book): Observable<Book>{
     return this.http.post<Book>(this.url + 'save', book)
@@ -44,12 +52,26 @@ export class BookService {
     return this.http.get<string[]>(this.url + 'get/extentionallowed')
   }
 
+  private initBooks(){
+    this.getAll().subscribe((r) => {
+      this.$booksSubject.next(r)
+    })
+  }
+
   initExtension(){
     return this.getExtentionAllowed()
   }
 
-  getAllBooks(){
-    return this.getAll()
+  getAllBooks(): Observable<Book[]>{
+    if(new Date().getTime() - this.lastUpdate.getTime() > TIME_LIMIT){
+      return this.getAll()
+    }else{
+      return this.$booksSubject
+    }
+  }
+
+  getBook(id: string): Book | undefined{
+      return this.$booksSubject.getValue().find((b) => b.id_book == parseInt(id))
   }
 
   save(book: Book){

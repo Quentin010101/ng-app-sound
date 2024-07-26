@@ -9,9 +9,12 @@ $gap: 1rem;
 }
 .p-folder{
     font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-2);
 }
 .p-file{
     font-size: 0.8rem;
+    color: var(--text-3);
 }
 
 
@@ -21,12 +24,7 @@ $gap: 1rem;
     gap: 1rem;
     margin-bottom: 1rem;
 }
-#info, #folder, #result{
-    p{
-        font-size: 0.8em;
-        font-weight: 500;
-    }
-}
+
 #info{
     grid-column: 1 / span 2;
 }
@@ -35,4 +33,17 @@ $gap: 1rem;
     gap: $gap;
     grid-template-columns: 1fr 1fr;
 
+}
+#folder, #result{
+    max-height: 300px;
+    overflow: scroll;
+}
+
+@media (max-width: 700px){
+    #info{
+        grid-column: 1 / span 1;
+    }
+    #wrapper{
+        grid-template-columns: 1fr;
+    }
 }

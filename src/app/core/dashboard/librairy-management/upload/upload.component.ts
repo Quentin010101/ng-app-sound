@@ -7,11 +7,14 @@ import { MessageService } from '../../../../service/utils/message.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FileListContainer } from '../../../../interface/bookApi/bookContainer.interface';
 import { FileService } from '../../../../service/core/file.service';
+import { LoaderComponent } from '../../../../shared/loader/loader.component';
+import { IconComponent } from '../../../../shared/icon/icon.component';
+import { CardComponent } from '../../../../shared/card/card.component';
 
 @Component({
   selector: 'app-upload',
   standalone: true,
-  imports: [],
+  imports: [LoaderComponent, IconComponent, CardComponent],
   templateUrl: './upload.component.html',
   styleUrl: './upload.component.scss'
 })
@@ -27,7 +30,13 @@ export class UploadComponent {
   book: Book | null = null
   filesList: FileListContainer | null = null
 
+  uploadingBook: boolean = false
+  uploadingFile: boolean = false
+  uploadedBook: boolean = false
+  uploadedFile: boolean = false
+
   constructor(){
+    this._bookManagementService.state.next(5)
     this._bookManagementService.$bookSubject.subscribe(book => {
       if(book){
         this.book = book
@@ -50,20 +59,28 @@ export class UploadComponent {
   }
 
   private saveBook(book: Book){
+    this.uploadingBook = true
     this._bookService.save(book).subscribe(response => {
-      console.log(response)
       this.saveFiles(response.id_book)
+      this.uploadingBook = false
+      this.uploadedBook = true
     })
   }
 
   private saveFiles(id: number){
     if(this.filesList){
+      this.uploadingFile = true
       let files: File[] = []
       this.filesList.files.forEach(f => {
         if(f.file) files.push(f.file)
       })
     this._fileService.saveFiles(files, id).subscribe((r) => {
-      console.log(r)
+      this.uploadingFile = false
+      this.uploadedFile = true
+      setTimeout(() => {
+        this._messageService.$messageSubject.next(new Message("File has been uploaded."))
+        this.redirectToRoot()
+      }, 1500)
     })
     }
   }

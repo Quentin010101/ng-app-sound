@@ -1,1 +1,14 @@
-<p>librairy works!</p>
+<div>
+    <div class="card-container">
+        @for(book of bookListShow; track $index){
+            <div class="card" (click)="goToBook(book)">
+                <div class="image" >
+                    <img [src]="book.image.imagePath" alt="">
+                </div>
+                <div class="text">
+                    <p class="title">{{ book.title }}</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

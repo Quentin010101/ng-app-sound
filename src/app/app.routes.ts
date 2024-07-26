@@ -12,6 +12,7 @@ import { ApiChoiceComponent } from './core/dashboard/librairy-management/api-cho
 import { FileManagementComponent } from './core/dashboard/librairy-management/file-management/file-management.component';
 import { BookManagementComponent } from './core/dashboard/librairy-management/book-management/book-management.component';
 import { UploadComponent } from './core/dashboard/librairy-management/upload/upload.component';
+import { BookComponent } from './core/dashboard/book/book.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent, title: 'Login'},
@@ -22,6 +23,9 @@ export const routes: Routes = [
             },
             {
                 path:'home', component: HomeComponent, title: "Home"
+            },
+            {
+                path:'book/:id', component: BookComponent, title: "Book"
             },
             {
                 path:'librairy', component: LibrairyComponent, title: "Librairy"

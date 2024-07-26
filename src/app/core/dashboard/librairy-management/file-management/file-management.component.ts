@@ -48,4 +48,9 @@ export class FileManagementComponent {
     this.router.navigate(['drop'] , {relativeTo: this.activeRoute.parent})
   }
 
+  isValid():boolean {
+    if(this.filesList && this.filesList.files.length > 0) return true
+    return false
+  }
+
 }

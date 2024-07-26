@@ -74,11 +74,17 @@ export class BookManagementComponent {
   private fillFormulaire(volumeInfo: VolumeInfo){
     this.newBookForm.get('title')?.setValue(volumeInfo.title ? volumeInfo.title : '')
     this.newBookForm.get('description')?.setValue(volumeInfo.description ? volumeInfo.description : '')
-    this.newBookForm.get('image')?.get('imagePath')?.setValue(volumeInfo.imageLinks.thumbnail ? volumeInfo.imageLinks.thumbnail : '')
-    this.newBookForm.get('image')?.get('imageThumbnailPath')?.setValue(volumeInfo.imageLinks.smallThumbnail ? volumeInfo.imageLinks.smallThumbnail : '')
+    this.addImage(volumeInfo)
     this.addAuthors(volumeInfo.authors ? volumeInfo.authors : [])
     this.addCategories(volumeInfo.categories ? volumeInfo.categories : [])
     if(this.filesList) this.addChapters(this.filesList)
+  }
+
+  private addImage(volumeInfo: VolumeInfo){
+    if(volumeInfo.imageLinks){
+      this.newBookForm.get('image')?.get('imagePath')?.setValue(volumeInfo.imageLinks.thumbnail ? volumeInfo.imageLinks.thumbnail : '')
+      this.newBookForm.get('image')?.get('imageThumbnailPath')?.setValue(volumeInfo.imageLinks.smallThumbnail ? volumeInfo.imageLinks.smallThumbnail : '')
+    }
   }
 
   private addAuthor(author: Author){

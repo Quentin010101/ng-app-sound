@@ -1,1 +1,28 @@
-<p>upload works!</p>
+<div>
+    <h4 class="h4">Uploading:</h4>
+    <app-card>
+        <div class="upload-container">
+            <app-icon icon="book"></app-icon>
+            <small><p>Uploading book: 
+                @if(uploadingBook){
+                    <app-loader size="sm"></app-loader>
+                 }
+                 @if(uploadedBook){
+                     <app-icon icon="check" class="valid"></app-icon>
+                 }
+            </p></small>
+    
+        </div>
+        <div class="upload-container">
+            <app-icon icon="musique"></app-icon>
+            <small><p>Uploading files: 
+                @if(uploadingFile){
+                    <app-loader size="sm"></app-loader>
+                }
+                @if(uploadedFile){
+                    <app-icon icon="check" class="valid"></app-icon>
+                }
+            </p></small>
+        </div>
+    </app-card>
+</div>

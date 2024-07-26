@@ -1,6 +1,7 @@
 @import '../../../../scss/color.scss';
 
 $width: 50px;
+$width2: 30px;
 
 #state{
     display: grid;
@@ -70,4 +71,41 @@ $width: 50px;
 
 
 
+}
+
+@media (max-width: 700px){
+    #state{
+        grid-column-gap: 0.5rem;
+        grid-row-gap: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        margin-bottom: 1rem;
+
+        h4{
+            font-size: 0.8em;
+            color: var(--text-5);
+        }
+        h5{
+            font-size: 0.7em;
+            font-weight: 500;
+            color: var(--text-1);
+        }
+        h6{
+            font-size: 0.6em;
+            font-weight: 400;
+        }
+    
+        .step{
+            grid-column-gap: 0.5rem;
+            grid-template-columns: $width2 3fr;
+            .point-container{
+                .point{
+                    width: calc(100% - 2px);
+                }
+            }
+            .line{
+                height: 1px;
+            }
+        }
+
+    }
 }

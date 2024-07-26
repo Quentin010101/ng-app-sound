@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { heroUser, heroLockClosed, heroPaperAirplane , heroArrowRight, heroAdjustmentsHorizontal, heroHome, heroPencil, heroBookOpen, heroPower, heroMusicalNote, heroFolder,
-   heroCheck, heroArrowDownTray, heroXMark, heroPhoto, heroDocumentText, heroSun, heroMoon, heroChevronUp, heroChevronDown } from '@ng-icons/heroicons/outline';
+   heroCheck, heroArrowDownTray, heroXMark, heroPhoto, heroDocumentText, heroSun, heroMoon, heroChevronUp, heroChevronDown, heroExclamationTriangle, heroChevronLeft
+  } from '@ng-icons/heroicons/outline';
 import { heroUserSolid, heroLockClosedSolid, heroPaperAirplaneSolid  , heroArrowRightSolid, heroAdjustmentsHorizontalSolid, heroHomeSolid, heroPencilSolid, heroBookOpenSolid,
    heroPowerSolid, heroMusicalNoteSolid, heroFolderSolid, heroCheckSolid, heroArrowDownTraySolid, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid, heroSunSolid, 
    heroMoonSolid } from '@ng-icons/heroicons/solid';
@@ -15,7 +16,7 @@ import { NgIconComponent , provideIcons } from '@ng-icons/core';
     heroArrowRight, heroArrowRightSolid, heroAdjustmentsHorizontal, heroAdjustmentsHorizontalSolid, heroHome, heroHomeSolid,heroPencil, heroBookOpen,
     heroPencilSolid, heroBookOpenSolid, heroPower, heroPowerSolid, heroMusicalNote, heroFolder, heroMusicalNoteSolid, heroFolderSolid, heroCheck, heroCheckSolid,
     heroArrowDownTray, heroArrowDownTraySolid, heroXMark, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid, heroPhoto, heroDocumentText, heroSun, heroSunSolid,
-    heroMoon, heroMoonSolid, heroChevronUp, heroChevronDown
+    heroMoon, heroMoonSolid, heroChevronUp, heroChevronDown, heroExclamationTriangle, heroChevronLeft
    })],
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss'
@@ -55,6 +56,8 @@ export class IconComponent {
       case 'moon' : this.name = 'heroMoon'; this.nameSolid = 'heroMoonSolid'; break;
       case 'up' : this.name = 'heroChevronUp'; this.nameSolid = 'heroChevronUp'; break;
       case 'down' : this.name = 'heroChevronDown'; this.nameSolid = 'heroChevronDown'; break;
+      case 'back' : this.name = 'heroChevronLeft'; this.nameSolid = 'heroChevronLeft'; break;
+      case 'warn' : this.name = 'heroExclamationTriangle'; this.nameSolid = 'heroExclamationTriangle'; break;
       default: break;
     }
     

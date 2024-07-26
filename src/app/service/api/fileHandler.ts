@@ -50,29 +50,37 @@ async function getFile(fileEntry: FileSystemFileEntry): Promise<File> {
   return new Promise((resolve, reject) => fileEntry.file(resolve, reject));
 }
 
-export function generateList(dir: DirectoryContainer): FileListContainer {
+export function generateList(dir: DirectoryContainer, extension: string[]): FileListContainer {
   let container: FileListContainer = new FileListContainer()
-  getDirectoryFiles(dir, container)
+  getDirectoryFiles(dir, container, extension)
   return container
 }
 
-function getDirectoryFiles(dir: DirectoryContainer, container: FileListContainer) {
+function getDirectoryFiles(dir: DirectoryContainer, container: FileListContainer, extension: string[]) {
   if (dir.files.length > 0) {
-    addFileToList(dir.files, container)
+    addFileToList(dir.files, container, extension)
   }
   if (dir.directories.length > 0) {
     dir.directories.forEach((d) => {
-      getDirectoryFiles(d, container)
+      getDirectoryFiles(d, container, extension)
     })
   }
 }
 
-function addFileToList(files: FileContainer[], container: FileListContainer) {
+function addFileToList(files: FileContainer[], container: FileListContainer, extension: string[]) {
   files.forEach((f) => {
-    if (f.extension == 'png') {
+    if (isExtensionValid(f,extension)) {
       container.files.push(f)
       container.size += f.file ? f.file?.size : 0
 
     }
   })
+}
+
+function isExtensionValid(file: FileContainer, extension: string[]): boolean{
+  let extensionToLowercase = extension.map(x => x.toLowerCase())
+  if(file.extension && !(extensionToLowercase.indexOf(file.extension.toLowerCase()) == -1)){
+    return true
+  }
+  return false
 }

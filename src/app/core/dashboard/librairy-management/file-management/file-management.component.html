@@ -3,7 +3,7 @@
   <div class="zone-padding">
     <div id="confirmation">
       <p>Confirm that the file list is ok and press validate:</p>
-      <button class="button" (click)="onValidate()">
+      <button class="button" (click)="onValidate()" [disabled]="!isValid()">
         <p>Validate</p>
       </button>
     </div>
@@ -14,44 +14,50 @@
           <p>Total size: {{ (filesList.size/1000000).toFixed(2) }} mo</p>
           }
       </app-card>
-      <app-card id="folder">
+      <app-card>
           <h5 class="h5">Folder dropped:</h5>
-          @if(directory){
-          <ul>
+          <div  id="folder">
+            @if(directory){
             <ng-container *ngTemplateOutlet="Recursion; context:{ directory: directory}"></ng-container>
-          </ul>
   
-          <ng-template #Recursion let-directory="directory">
-            <div>
-              <p class="p-folder">
-                <app-icon icon="folder" [solid]="true" size="0.9rem"></app-icon>
-                <span>{{ directory.name }}</span>
-              </p>
-              <div style="margin-left: 1rem;">
-                @for(file of directory.files; track $index){
-                <p class="p-file">
-                  <app-icon icon="{{ file.name | iconName }}" [solid]="false" size="0.8rem"></app-icon>
-                  <span>{{ file.name }}</span>
+    
+            <ng-template #Recursion let-directory="directory">
+              <div >
+                <p class="p-folder">
+                  <app-icon icon="folder" [solid]="true" size="0.9rem"></app-icon>
+                  <span>{{ directory.name }}</span>
                 </p>
-                }
-                @for(directory of directory.directories; track $index){
-                <ng-container *ngTemplateOutlet="Recursion; context:{ directory: directory }"></ng-container>
-                }
+                <div style="margin-left: 1rem;">
+                  @for(file of directory.files; track $index){
+                  <p class="p-file">
+                    <app-icon icon="{{ file.name | iconName }}" [solid]="false" size="0.8rem"></app-icon>
+                    <span>{{ file.name }}</span>
+                  </p>
+                  }
+                  @for(directory of directory.directories; track $index){
+                  <ng-container *ngTemplateOutlet="Recursion; context:{ directory: directory }"></ng-container>
+                  }
+                </div>
               </div>
-            </div>
-          </ng-template>
-          }
+            </ng-template>
+            }
+          </div>
       </app-card>
-      <app-card id="result">
+      <app-card>
           <h5 class="h5">File found:</h5>
-          @if(filesList && filesList.files.length > 0){
-          @for(file of filesList.files; track $index){
-          <p class="p-file">
-            <app-icon icon="{{ file.name | iconName }}" [solid]="false" size="0.8rem"></app-icon>
-            <span>{{ file.name }}</span>
-          </p>
-          }
-          }
+          <div  id="result">
+            @if(filesList){
+              @for(file of filesList.files; track $index){
+              <p class="p-file">
+                <app-icon icon="{{ file.name | iconName }}" [solid]="false" size="0.8rem"></app-icon>
+                <span>{{ file.name }}</span>
+              </p>
+              }@empty{
+                
+                <small><p class="p-file"><app-icon icon="warn" class="invalid"></app-icon> No valid files found.</p></small>
+              }
+            }
+          </div>
       </app-card>
     </div>
 
