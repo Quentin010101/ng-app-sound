@@ -1,5 +1,5 @@
 import { APP_INITIALIZER, ApplicationConfig } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -9,7 +9,8 @@ import { responseInterceptor } from './interceptor/responseInterceptor';
 import { initializeUserConfig } from '../main';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withComponentInputBinding()), 
+  providers: [provideRouter(routes, withComponentInputBinding(),
+    withViewTransitions()), 
     provideAnimationsAsync(),
     provideHttpClient(
       withInterceptors([requestInterceptor,responseInterceptor])

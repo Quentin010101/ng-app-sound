@@ -12,7 +12,7 @@ import { ApiChoiceComponent } from './core/dashboard/librairy-management/api-cho
 import { FileManagementComponent } from './core/dashboard/librairy-management/file-management/file-management.component';
 import { BookManagementComponent } from './core/dashboard/librairy-management/book-management/book-management.component';
 import { UploadComponent } from './core/dashboard/librairy-management/upload/upload.component';
-import { BookComponent } from './core/dashboard/book/book.component';
+import { BookComponent } from './core/dashboard/librairy/book/book.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent, title: 'Login'},

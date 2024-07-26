@@ -21,6 +21,7 @@ export class LibrairyComponent {
   private $searchState = new BehaviorSubject<string>('full')
 
   bookListShow: Book[] = []
+  bookIdSelected:number = 0
 
   constructor(){
     this._bookService.getAllBooks().subscribe(b => {
@@ -30,6 +31,7 @@ export class LibrairyComponent {
   }
 
   goToBook(book: Book){
+    this.bookIdSelected = book.id_book
     this.router.navigate(['book', book.id_book], {relativeTo: this.activeRoute.parent})
   }
 }

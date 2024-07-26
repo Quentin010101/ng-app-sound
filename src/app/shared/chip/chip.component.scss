@@ -11,7 +11,12 @@
     color: var(--text-invert-1);
     padding: 0.20rem 0.40rem;
     font-size: 0.75em;
+    font-weight: 400;
     border-radius: 0.75rem;
+
+    &.lg{
+        padding: 0.40rem 0.80rem;
+    }
 
     #cross{
         border-radius: 100%;

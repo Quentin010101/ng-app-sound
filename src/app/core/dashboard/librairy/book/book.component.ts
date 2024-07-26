@@ -1,16 +1,18 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Book } from '../../../interface/core/book.interface';
+import { Book } from '../../../../interface/core/book.interface';
 import { switchMap } from 'rxjs';
-import { BookService } from '../../../service/core/book.service';
-import { MessageService } from '../../../service/utils/message.service';
-import { Message } from '../../../interface/utils/message.interface';
-import { BackComponent } from '../../../shared/back/back.component';
+import { BookService } from '../../../../service/core/book.service';
+import { MessageService } from '../../../../service/utils/message.service';
+import { Message } from '../../../../interface/utils/message.interface';
+import { BackComponent } from '../../../../shared/back/back.component';
+import { ChipComponent } from '../../../../shared/chip/chip.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book',
   standalone: true,
-  imports: [BackComponent],
+  imports: [BackComponent, ChipComponent, CommonModule],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'
 })

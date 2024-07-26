@@ -1,9 +1,9 @@
-<div>
+<div class="page">
     <div class="card-container">
         @for(book of bookListShow; track $index){
             <div class="card" (click)="goToBook(book)">
                 <div class="image" >
-                    <img [src]="book.image.imagePath" alt="">
+                    <img [src]="book.image.imagePath" alt="" [style.view-transition-name]="bookIdSelected == book.id_book ? 'card-image' : 'none'" class="view-test">
                 </div>
                 <div class="text">
                     <p class="title">{{ book.title }}</p>

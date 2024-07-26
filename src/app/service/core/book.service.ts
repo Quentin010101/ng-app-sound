@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environnement } from '../../../environnement';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Book } from '../../interface/core/book.interface';
 import { Category } from '../../interface/core/category.interface';
 import { Author } from '../../interface/core/author.interface';
@@ -75,7 +75,12 @@ export class BookService {
   }
 
   save(book: Book){
-    return this.saveBook(book)
+    return this.saveBook(book).pipe(map(book => {
+      let arr: Book[] = this.$booksSubject.value
+      arr.push(book)
+      this.$booksSubject.next(arr)
+      return book
+    }))
   }
 
 

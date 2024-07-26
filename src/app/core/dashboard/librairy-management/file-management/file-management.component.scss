@@ -36,7 +36,7 @@ $gap: 1rem;
 }
 #folder, #result{
     max-height: 300px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 @media (max-width: 700px){

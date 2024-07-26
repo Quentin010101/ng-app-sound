@@ -12,6 +12,7 @@ import { IconComponent } from '../icon/icon.component';
 export class ChipComponent {
   @Input() text: string | null = null
   @Input() action: boolean = false
+  @Input() lg: boolean = false
   @Output() chipEmiter = new EventEmitter<boolean>()
 
   delete(){

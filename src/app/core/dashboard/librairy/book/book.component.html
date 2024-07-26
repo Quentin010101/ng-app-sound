@@ -1,0 +1,32 @@
+<div class="page">
+    <app-back (goBackEmitter)="goBack()"></app-back>
+    @if(book){
+        <div class="book-container">
+            <div>
+                <img [src]="book.image.imagePath" alt="" class="view-test">
+            </div>
+            <div id="content">
+                <h4 class="h4">{{ book.title }} </h4>
+                <span id="chapter">(Number of chapters: {{ book.chapters.length }})</span>
+                <p>{{ book.description }}</p>
+                <div id="spe">
+                    <h5 class="h5">Authors: 
+                        @for(author of book.authors; track $index){
+                            <app-chip [lg]="true" [text]="author.name + ' ' + author.surname"></app-chip>
+                        }@empty {
+                            <small><i>No author found.</i></small>
+                        }
+                    </h5>
+                    <h5 class="h5">Categories: 
+                        @for(category of book.categories; track $index){
+                            <app-chip [lg]="true" [text]="category.name"></app-chip>
+                        }@empty {
+                            <small><i>No category found.</i></small>
+                        }
+                    </h5>
+                    <h5 class="h5">Uploaded: <span>{{ book.dateUploaded | date }}</span></h5>
+                </div>
+            </div>
+        </div>
+    }
+</div>

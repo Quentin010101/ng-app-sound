@@ -3,11 +3,10 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.5rem;
-    margin-top: 1.5rem;
 
     .card{
         background-color: var(--bg-1);
-        border-radius: 0.5rem;
+        border-radius: 0.25rem;
         overflow: hidden;
         width: 180px;
         cursor: pointer;

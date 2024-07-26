@@ -2,7 +2,7 @@
     <nav>
         <ul>
             <li>
-                <a routerLink="home" routerLinkActive="active">
+                <a routerLink="home" routerLinkActive="active" aria-label="go to home page">
                     <app-icon size="1.3rem" icon="home"></app-icon>
                     <div>
                         Home
@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li>
-                <a routerLink="librairy" routerLinkActive="active">
+                <a routerLink="librairy" routerLinkActive="active" aria-label="got to librairy page">
                     <app-icon size="1.3rem" icon="book"></app-icon>
                     <div>
                         Librairy
@@ -19,7 +19,7 @@
             </li>
             @if(isAdmin){
                 <li>
-                    <a routerLink="librairy-management" routerLinkActive="active">
+                    <a routerLink="librairy-management" routerLinkActive="active" aria-label="got to librairy management page">
                         <app-icon size="1.3rem" icon="pencil"></app-icon>
                         <div>
                             Librairy Management
@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li>
-                    <a routerLink="api-settings" routerLinkActive="active">
+                    <a routerLink="api-settings" routerLinkActive="active" aria-label="got to api settings page">
                         <app-icon size="1.3rem" icon="setting"></app-icon>
                         <div>
                             Api Settings
