@@ -5,7 +5,7 @@ header{
     align-items: center;
     width: 100%;
     padding: 1rem;
-    border-bottom: 1px solid var(--text-invert-1);
+    border-bottom: 1px solid var(--text-invert-4);
 
     button{
         border: none;
@@ -17,11 +17,11 @@ header{
         cursor: pointer;
         transition: all 0.2s;
         color: var(--text);
-    
+
         &:hover{
             background-color: var(--bg-1);
         }
-    
+
     }
 
     #title{
@@ -32,20 +32,20 @@ header{
             span{
                 font-size: 1.3em;
                 background:
-    
+
                   radial-gradient(
                     closest-side at 90% 65%,
-                    var(--primary-1), 
+                    var(--primary-1),
                     transparent
                   ),
                   radial-gradient(
                     closest-side at 45% 75%,
-                    var(--primary-1), 
+                    var(--primary-1),
                     transparent
                   ),
                   radial-gradient(
                     closest-corner at 12% 32%,
-                    var(--primary-1), 
+                    var(--primary-1),
                     var(--text-2)
                   );
                 -webkit-background-clip: text;
