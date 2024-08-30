@@ -1,0 +1,18 @@
+<div class="page">
+  <app-card>
+    <h4 class="h4">Book Api settings:</h4>
+    @if(loading){
+      <app-loader size="sm"></app-loader>
+    }@else {
+      @if(!error){
+        <form [formGroup]="settingsForm">
+          <input-text [control]="settingsForm.controls.link" label="Link" placeholder="Api link"></input-text>
+          <input-text [control]="settingsForm.controls.key" label="Key" placeholder="Api key"></input-text>
+          <button class="button" [disabled]="settingsForm.invalid"><p>Save</p></button>
+        </form>
+      }@else {
+        <p class="information">An error occured.</p>
+      }
+    }
+  </app-card>
+</div>

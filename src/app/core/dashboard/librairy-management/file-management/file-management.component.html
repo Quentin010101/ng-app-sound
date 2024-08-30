@@ -6,21 +6,26 @@
       <button class="button" (click)="onValidate()" [disabled]="!isValid()">
         <p>Validate</p>
       </button>
+      @if(filesList == null || filesList.files.length < 1){
+        <button class="button" (click)="actionBack()">
+          <p>Go back</p>
+        </button>
+      }
     </div>
     <div id="wrapper">
-      <app-card id="info">
-          @if(filesList && filesList.files.length > 0){
+      @if(filesList && filesList.files.length > 0){
+        <app-card id="info">
           <p>Number of files: {{ filesList.files.length }}</p>
           <p>Total size: {{ (filesList.size/1000000).toFixed(2) }} mo</p>
-          }
-      </app-card>
+        </app-card>
+      }
       <app-card>
           <h5 class="h5">Folder dropped:</h5>
           <div  id="folder">
             @if(directory){
             <ng-container *ngTemplateOutlet="Recursion; context:{ directory: directory}"></ng-container>
-  
-    
+
+
             <ng-template #Recursion let-directory="directory">
               <div >
                 <p class="p-folder">
@@ -53,7 +58,7 @@
                 <span>{{ file.name }}</span>
               </p>
               }@empty{
-                
+
                 <small><p class="p-file"><app-icon icon="warn" class="invalid"></app-icon> No valid files found.</p></small>
               }
             }

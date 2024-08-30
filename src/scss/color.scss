@@ -5,6 +5,8 @@ body{
     $bg: rgb(235, 235, 235);
     $primary: #44a9e4;
 
+    --valid: green;
+    --invalid: red;
 
     --bg: #{$bg};
     --bg-0-5: #{darken($bg, 2.5%)};
@@ -21,14 +23,14 @@ body{
     --bg-invert-3: #{darken($bg, 65%)};
     --bg-invert-4: #{darken($bg, 60%)};
 
+    --bg-invalid: #{lighten(red, 20%)};
+
     --primary: #{$primary};
     --primary-1: #{lighten($primary, 5%)};
     --primary-2: #{lighten($primary, 10%)};
     --primary-3: #{lighten($primary, 15%)};
     --primary-4: #{lighten($primary, 20%)};
 
-    --valid: green;
-    --invalid: red;
 
     --text: #{$text};
     --text-1: #{lighten($text, 5%)};
@@ -65,6 +67,8 @@ body[data-theme='dark']{
     --bg-invert-2: #{lighten($bg, 70%)};
     --bg-invert-3: #{lighten($bg, 65%)};
     --bg-invert-4: #{lighten($bg, 60%)};
+
+    --bg-invalid: #{darken(red, 20%)};
 
     --primary: #{$primary};
     --primary-1: #{darken($primary, 5%)};

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+
+
 .h4{
     color: var(--text-3);
     font-weight: 500;
@@ -8,4 +11,14 @@
     margin-bottom: 0.5rem;
     font-style: normal;
     font-weight: 500;
+}
+.information
+{
+  font-style: italic;
+  color: var(--text-3);
+}
+
+.emoji{
+  font-style: normal;
+  font-family: "Noto Color Emoji", sans-serif;
 }

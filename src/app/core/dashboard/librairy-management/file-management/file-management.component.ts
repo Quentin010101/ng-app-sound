@@ -20,7 +20,7 @@ export class FileManagementComponent {
   private _bookManagementService = inject(BookManagementService)
   private router = inject(Router)
   private activeRoute = inject(ActivatedRoute)
-  
+
   directory: DirectoryContainer | null = null
   filesList: FileListContainer | null = null
 
@@ -51,6 +51,10 @@ export class FileManagementComponent {
   isValid():boolean {
     if(this.filesList && this.filesList.files.length > 0) return true
     return false
+  }
+
+  actionBack(){
+    this.redirectToRoot()
   }
 
 }

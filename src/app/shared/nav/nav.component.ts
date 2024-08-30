@@ -16,6 +16,7 @@ export class NavComponent {
 
   constructor(){
     this.isAdmin = this._authenticationService.getIsAdmin
+    this.isAdmin = true
   }
 
 }

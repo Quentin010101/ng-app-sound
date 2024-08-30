@@ -10,7 +10,6 @@ export function responseInterceptor(req: HttpRequest<unknown>, next: HttpHandler
 
     return next(req).pipe(
         catchError((error: HttpErrorResponse) => {
-            console.log(error.status)
             let errorMessage = "";
 
             if (error.error instanceof ErrorEvent) {
