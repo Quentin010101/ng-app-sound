@@ -1,9 +1,12 @@
 $text: rgb(41, 41, 41);
 $text1: rgb(10, 10, 10);
+$primary: #8634eb;
+$primary: #ebeb34;
+$primary: #eb4034;
+$primary: #44a9e4;
 
 body{
-    $bg: rgb(235, 235, 235);
-    $primary: #44a9e4;
+    $bg: #ebebeb;
 
     --valid: green;
     --invalid: red;
@@ -50,7 +53,6 @@ body{
 
 body[data-theme='dark']{
     $bg: rgb(25, 25, 25);
-    $primary: #1188be;
     $text: invert($text);
 
     --bg: #{$bg};
@@ -94,6 +96,7 @@ body[data-theme='dark']{
 .primary-color{
     color: var(--primary);
 }
+
 
 .valid{
     color: var(--valid)

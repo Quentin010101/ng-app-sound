@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   private _authenticationService = inject(AuthenticationService)
-  public username: string = ''
+  public username: string = 'Quentin'
 
   constructor(){
      if(this._authenticationService.getUsername) this.username = this._authenticationService.getUsername

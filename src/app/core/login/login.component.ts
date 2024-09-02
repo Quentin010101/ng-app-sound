@@ -9,12 +9,13 @@ import { RequestAuthentication } from '../../interface/security/requestAuthentic
 import { MessageService } from '../../service/utils/message.service';
 import { Message } from '../../interface/utils/message.interface';
 import { Subject } from 'rxjs';
+import { OfflineComponent } from '../../shared/offline/offline.component';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextComponent, PasswordComponent, ButtonComponent],
+  imports: [CommonModule, ReactiveFormsModule, TextComponent, PasswordComponent, ButtonComponent, OfflineComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

@@ -26,33 +26,35 @@ header{
 
     #title{
         h1{
+            position: relative;
             font-family: "Playwrite AR", cursive;
             color: var(--text-4);
             font-size: 1.6em;
-            span{
-                font-size: 1.3em;
-                background:
+            padding: 0 0.5rem;
+            // span{
+            //     font-size: 1.3em;
+            //     background:
 
-                  radial-gradient(
-                    closest-side at 90% 65%,
-                    var(--primary-1),
-                    transparent
-                  ),
-                  radial-gradient(
-                    closest-side at 45% 75%,
-                    var(--primary-1),
-                    transparent
-                  ),
-                  radial-gradient(
-                    closest-corner at 12% 32%,
-                    var(--primary-1),
-                    var(--text-2)
-                  );
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
+            //       radial-gradient(
+            //         closest-side at 90% 65%,
+            //         var(--primary-1),
+            //         transparent
+            //       ),
+            //       radial-gradient(
+            //         closest-side at 45% 75%,
+            //         var(--primary-1),
+            //         transparent
+            //       ),
+            //       radial-gradient(
+            //         closest-corner at 12% 32%,
+            //         var(--primary-1),
+            //         var(--text-2)
+            //       );
+            //     -webkit-background-clip: text;
+            //     background-clip: text;
+            //     color: transparent;
 
-            }
+            // }
         }
     }
 

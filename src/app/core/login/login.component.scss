@@ -7,12 +7,19 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+
+    #off{
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
 
     #form{
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-    
+
         p{
             margin: 0;
             &.title{
