@@ -1,8 +1,8 @@
-<div>
+<app-card [darker]="true">
   <h4 class="h4">File management:</h4>
   <div class="zone-padding">
     <div id="confirmation">
-      <p>Confirm that the file list is ok and press validate:</p>
+      <small><p>Confirm that the file list is ok and press validate:</p></small>
       <button class="button" (click)="onValidate()" [disabled]="!isValid()">
         <p>Validate</p>
       </button>
@@ -67,4 +67,4 @@
     </div>
 
   </div>
-</div>
+</app-card>

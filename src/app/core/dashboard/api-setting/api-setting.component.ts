@@ -5,11 +5,12 @@ import { Component, inject } from '@angular/core';
 import { TextComponent } from '../../../shared/input/text/text.component';
 import { CardComponent } from '../../../shared/card/card.component';
 import { LoaderComponent } from '../../../shared/loader/loader.component';
+import { IconComponent } from '../../../shared/icon/icon.component';
 
 @Component({
   selector: 'app-api-setting',
   standalone: true,
-  imports: [ReactiveFormsModule, TextComponent, CardComponent, LoaderComponent ],
+  imports: [ReactiveFormsModule, TextComponent, CardComponent, LoaderComponent, IconComponent ],
   templateUrl: './api-setting.component.html',
   styleUrl: './api-setting.component.scss'
 })

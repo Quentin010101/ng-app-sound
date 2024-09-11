@@ -5,11 +5,12 @@ import { BookManagementService } from '../../../../service/api/book-management.s
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderComponent } from '../../../../shared/loader/loader.component';
 import { IconComponent } from '../../../../shared/icon/icon.component';
+import { CardComponent } from '../../../../shared/card/card.component';
 
 @Component({
   selector: 'app-drop',
   standalone: true,
-  imports: [CommonModule, LoaderComponent, IconComponent],
+  imports: [CommonModule, LoaderComponent, IconComponent, CardComponent],
   templateUrl: './drop.component.html',
   styleUrl: './drop.component.scss'
 })

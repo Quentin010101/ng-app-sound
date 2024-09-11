@@ -10,5 +10,12 @@ import { LoaderComponent } from '../../../shared/loader/loader.component';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+   date:string = '';
+  ngOnInit(){
 
+    setInterval(() => {
+      let d = new Date();
+      this.date = d.toLocaleTimeString();
+    }, 30)
+  }
 }

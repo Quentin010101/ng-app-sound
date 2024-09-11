@@ -6,7 +6,7 @@ $primary: #eb4034;
 $primary: #44a9e4;
 
 body{
-    $bg: #ebebeb;
+    $bg: #e0e0e0;
 
     --valid: green;
     --invalid: red;
@@ -26,7 +26,7 @@ body{
     --bg-invert-3: #{darken($bg, 65%)};
     --bg-invert-4: #{darken($bg, 60%)};
 
-    --bg-invalid: #{lighten(red, 20%)};
+    --bg-invalid: #{lighten(rgb(214, 62, 62), 10%)};
 
     --primary: #{$primary};
     --primary-1: #{lighten($primary, 5%)};
@@ -52,7 +52,7 @@ body{
 }
 
 body[data-theme='dark']{
-    $bg: rgb(25, 25, 25);
+    $bg: rgb(34, 34, 34);
     $text: invert($text);
 
     --bg: #{$bg};
@@ -70,7 +70,7 @@ body[data-theme='dark']{
     --bg-invert-3: #{lighten($bg, 65%)};
     --bg-invert-4: #{lighten($bg, 60%)};
 
-    --bg-invalid: #{darken(red, 20%)};
+    --bg-invalid: #{darken(rgb(214, 62, 62), 30%)};
 
     --primary: #{$primary};
     --primary-1: #{darken($primary, 5%)};

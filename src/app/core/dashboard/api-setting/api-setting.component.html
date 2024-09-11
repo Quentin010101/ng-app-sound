@@ -11,7 +11,10 @@
           <button class="button" [disabled]="settingsForm.invalid"><p>Save</p></button>
         </form>
       }@else {
-        <p class="information">An error occured.</p>
+        <p class="information">
+          <app-icon icon="warn" ></app-icon>
+          An error occured.
+        </p>
       }
     }
   </app-card>
