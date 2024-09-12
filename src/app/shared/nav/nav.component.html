@@ -6,16 +6,24 @@
     <nav>
         <ul>
             <li>
-                <a routerLink="home" routerLinkActive="active" aria-label="go to home page">
-                    <app-icon size="1.3rem" icon="home"></app-icon>
+                <a routerLink="home" routerLinkActive="active" aria-label="go to home page" #home="routerLinkActive">
+                    <app-icon size="1.3rem" icon="home" [solid]="home.isActive"></app-icon>
                     <div>
                         Home
                     </div>
                 </a>
             </li>
             <li>
-                <a routerLink="librairy" routerLinkActive="active" aria-label="got to librairy page">
-                    <app-icon size="1.3rem" icon="book"></app-icon>
+                <a routerLink="games" routerLinkActive="active" aria-label="go to games page" #games="routerLinkActive">
+                    <app-icon size="1.3rem" icon="games" [solid]="games.isActive"></app-icon>
+                    <div>
+                        Games
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a routerLink="librairy" routerLinkActive="active" aria-label="got to librairy page" #librairy="routerLinkActive">
+                    <app-icon size="1.3rem" icon="book" [solid]="librairy.isActive"></app-icon>
                     <div>
                         Librairy
                     </div>
@@ -23,16 +31,16 @@
             </li>
             @if(isAdmin){
                 <li>
-                    <a routerLink="librairy-management" routerLinkActive="active" aria-label="got to librairy management page">
-                        <app-icon size="1.3rem" icon="pencil"></app-icon>
+                    <a routerLink="librairy-management" routerLinkActive="active" aria-label="got to librairy management page" #librairyM="routerLinkActive">
+                        <app-icon size="1.3rem" icon="pencil" [solid]="librairyM.isActive"></app-icon>
                         <div>
                             Librairy Management
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a routerLink="api-settings" routerLinkActive="active" aria-label="got to api settings page">
-                        <app-icon size="1.3rem" icon="setting"></app-icon>
+                    <a routerLink="api-settings" routerLinkActive="active" aria-label="got to api settings page" #settings="routerLinkActive">
+                        <app-icon size="1.3rem" icon="setting" [solid]="settings.isActive"></app-icon>
                         <div>
                             Api Settings
                         </div>

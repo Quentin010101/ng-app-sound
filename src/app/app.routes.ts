@@ -13,6 +13,9 @@ import { FileManagementComponent } from './core/dashboard/librairy-management/fi
 import { BookManagementComponent } from './core/dashboard/librairy-management/book-management/book-management.component';
 import { UploadComponent } from './core/dashboard/librairy-management/upload/upload.component';
 import { BookComponent } from './core/dashboard/librairy/book/book.component';
+import { GamesComponent } from './core/dashboard/games/games.component';
+import { GamesHomeComponent } from './core/dashboard/games/games-home/games-home.component';
+import { SnakeComponent } from './core/dashboard/games/snake/snake.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent, title: 'Login'},
@@ -23,6 +26,19 @@ export const routes: Routes = [
             },
             {
                 path:'home', component: HomeComponent, title: "Home"
+            },
+            {
+                path:'games', component: GamesComponent, title: "Games", children : [
+                  {
+                    path:'', redirectTo: 'home', pathMatch: 'full'
+                },
+                {
+                  path:'home', component: GamesHomeComponent, title: "Games"
+              },
+                {
+                  path:'snake', component: SnakeComponent, title: "Snake"
+              },
+                ]
             },
             {
                 path:'book/:id', component: BookComponent, title: "Book"

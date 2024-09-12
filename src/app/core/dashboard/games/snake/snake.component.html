@@ -1,0 +1,7 @@
+<app-back (goBackEmitter)="goBack()"></app-back>
+<div #grid id="grid"></div>
+@if(action){
+  <button (click)="stop()">Stop</button>
+}@else {
+  <button (click)="start()">Start</button>
+}
