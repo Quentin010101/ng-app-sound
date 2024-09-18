@@ -1,3 +1,67 @@
+
+#grid-container{
+  flex: auto;
+}
 #grid{
-  border: solid;
+  border: solid 2px var(--text-3);
+}
+#grid2{
+  min-height: 20vh;
+  max-height: 80vh;
+  aspect-ratio: 1/1;
+  position:relative;
+}
+#container{
+  display: flex;
+}
+#buttons, #overlay{
+  position: absolute;
+  inset: 0;
+}
+#buttons2{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  opacity: 0.8;
+}
+#overlay{
+  background-color: var(--text-3);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+#buttons, #buttons2{
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  .sign{
+    width: 4rem;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:hover{
+    .sign.act{
+      background-color: var(--primary-1);
+
+    }
+  }
+  .act2:hover{
+    background-color: var(--primary-1);
+  }
+}
+
+@media (max-width: 1200px){
+  #container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

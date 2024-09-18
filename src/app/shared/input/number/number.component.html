@@ -1,0 +1,9 @@
+<div class="input-container" [ngStyle]="{'max-width': width? width : '5rem'}">
+    @if(label){
+        <label>{{ label }}</label>
+    }
+    <div [ngClass]="{'input-item': true, 'disabled': control.disabled}"  (click)="input.focus()">
+        <app-icon [icon]="icon" [solid]="focus" [color]="!control.disabled" size="1.1rem"></app-icon>
+        <input #input type="number" [formControl]="control" [placeholder]="placeholder" (focus)="onFocus()" (blur)="onBlur()" [step]="step" [min]="min" [max]="max">
+    </div>
+</div>

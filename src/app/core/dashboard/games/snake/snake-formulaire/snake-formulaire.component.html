@@ -1,0 +1,6 @@
+<h5 class="h5">Settings:</h5>
+<form [formGroup]="variableForm">
+    <app-number label="Grid" placeholder="Enter a number" [min]="gridMin" [max]="gridMax" [control]="variableForm.controls.grid"></app-number>
+    <app-number label="Speed" placeholder="Enter a number" [min]="speedMin" [max]="speedMax" [control]="variableForm.controls.speed"></app-number>
+    <app-number label="Incrementation" placeholder="Enter a number" [control]="variableForm.controls.incrementation" [min]="incrementationMin" [max]="incrementationMax" [step]="incrementationStep"></app-number>
+</form>

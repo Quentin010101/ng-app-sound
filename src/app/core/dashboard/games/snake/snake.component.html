@@ -1,7 +1,28 @@
 <app-back (goBackEmitter)="goBack()"></app-back>
-<div #grid id="grid"></div>
-@if(action){
-  <button (click)="stop()">Stop</button>
-}@else {
-  <button (click)="start()">Start</button>
-}
+<div id="container">
+  <div id="grid-container">
+    <div id="grid2"  (mouseover)="setMouseOver()" (mouseleave)="setMouseLeave()">
+      <div #grid id="grid"></div>
+      @if(action){
+      <div id="buttons2">
+        @if(mouseOverGrid){
+          <div (click)="stop()" class="sign act2" ><app-icon icon="stop" [size]="'1.5rem'"></app-icon></div>
+          @if(isPaused){
+            <div (click)="re()" class="sign  act2" ><app-icon icon="play" [size]="'1.5rem'"></app-icon></div>
+          }@else if(!loose){
+            <div (click)="pau()" class="sign  act2" ><app-icon icon="pause" [size]="'1.5rem'"></app-icon></div>
+          }
+        }
+      </div>
+      }@else {
+      <div id="buttons" (click)="start()">
+        <div class="sign act"><app-icon icon="play" [size]="'1.5rem'" [solid]="mouseOverGrid"></app-icon></div>
+      </div>
+      <div id="overlay"></div>
+    }
+    </div>
+  </div>
+  <div id="snake">
+    <app-snake-formulaire [formulaireActif]="!action" [variables]="snakeVariable" (emitter)="onFormSubmit($event)"></app-snake-formulaire>
+  </div>
+</div>

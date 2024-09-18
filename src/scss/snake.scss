@@ -1,8 +1,159 @@
 .square{
-  border: solid 2px;
-  width: 100%;
+  border: solid 1px var(--text-5);
   aspect-ratio: 1/1;
 }
 .snackActive{
   background-color: var(--primary);
+
+  &.snackTop{
+    border-top: none;
+  }
+  &.snackBottom{
+    border-bottom: none;
+  }
+  &.snackLeft{
+    border-left: none;
+  }
+  &.snackRight{
+    border-right: none;
+  }
+}
+#yeux{
+  &::after{
+    content: '';
+    position: absolute;
+    background-color: var(--text-2);
+    height: 4px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+  }
+  &::before{
+    content: '';
+    position: absolute;
+    background-color: var(--text-2);
+    height: 4px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+  }
+}
+.up #yeux{
+  &::after{
+    top: 30%;
+    left: 30%;
+  }
+  &::before{
+    top: 30%;
+    right: 30%;
+  }
+}
+.down #yeux{
+  &::after{
+    bottom: 30%;
+    left: 30%;
+  }
+  &::before{
+    bottom: 30%;
+    right: 30%;
+  }
+}
+.right #yeux{
+  &::after{
+    top: 30%;
+    right: 30%;
+  }
+  &::before{
+    bottom: 30%;
+    right: 30%;
+  }
+}
+.left #yeux{
+  &::after{
+    top: 30%;
+    left: 30%;
+  }
+  &::before{
+    bottom: 30%;
+    left: 30%;
+  }
+}
+.snackActiveHeadTail{
+  // box-shadow: 2px 2px 5px 1px var(--text-5);
+  position: relative;
+
+  &::before{
+    content: '';
+    position: absolute;
+    background-color: var(--primary);
+    inset: 0;
+  }
+
+  &.up{
+    border-bottom: none;
+    
+    &::before{
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom: none;
+    }
+  }
+  &.down{
+    border-top: none;
+
+    &::before{
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top: none;
+    }
+  }
+  &.left{
+    border-right: none;
+
+    &::before{
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border-right: none;
+    }
+  }
+  &.right{
+    border-left: none;
+
+    &::before{
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-left: none;
+    }
+  }
+}
+
+
+.apple{
+  border: solid 1px var(--text-5);
+  position: relative;
+  &::before{
+    z-index: 1;
+    content: '';
+    box-shadow: 2px 2px 5px 1px var(--text-5);
+    background-color: var(--invalid);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    transform: translate(-50%, -20%);
+  }
+  &::after{
+    box-shadow: 2px 2px 2px 0px var(--text-5);
+    z-index: 2;
+    content: '';
+    position: absolute;
+    background-color: var(--valid);
+    height: 25%;
+    aspect-ratio: 3/2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-10%, -100%);
+    border-radius: 50% 0;
+
+  }
 }

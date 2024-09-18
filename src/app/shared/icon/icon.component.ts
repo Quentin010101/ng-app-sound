@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { heroUser, heroLockClosed, heroPaperAirplane , heroArrowRight, heroAdjustmentsHorizontal, heroHome, heroPencil, heroBookOpen, heroPower, heroMusicalNote, heroFolder,
    heroCheck, heroArrowDownTray, heroXMark, heroPhoto, heroDocumentText, heroSun, heroMoon, heroChevronUp, heroChevronDown, heroExclamationTriangle, heroChevronLeft,
-  heroPuzzlePiece} from '@ng-icons/heroicons/outline';
+  heroPuzzlePiece, heroPlay, heroPause, heroStop} from '@ng-icons/heroicons/outline';
 import { heroUserSolid, heroLockClosedSolid, heroPaperAirplaneSolid  , heroArrowRightSolid, heroAdjustmentsHorizontalSolid, heroHomeSolid, heroPencilSolid, heroBookOpenSolid,
    heroPowerSolid, heroMusicalNoteSolid, heroFolderSolid, heroCheckSolid, heroArrowDownTraySolid, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid, heroSunSolid, 
-   heroMoonSolid, heroPuzzlePieceSolid } from '@ng-icons/heroicons/solid';
+   heroMoonSolid, heroPuzzlePieceSolid, heroPlaySolid, heroPauseSolid, heroStopSolid } from '@ng-icons/heroicons/solid';
 import { NgIconComponent , provideIcons } from '@ng-icons/core';
 
 @Component({
@@ -17,6 +17,7 @@ import { NgIconComponent , provideIcons } from '@ng-icons/core';
     heroPencilSolid, heroBookOpenSolid, heroPower, heroPowerSolid, heroMusicalNote, heroFolder, heroMusicalNoteSolid, heroFolderSolid, heroCheck, heroCheckSolid,
     heroArrowDownTray, heroArrowDownTraySolid, heroXMark, heroXMarkSolid, heroPhotoSolid, heroDocumentTextSolid, heroPhoto, heroDocumentText, heroSun, heroSunSolid,
     heroMoon, heroMoonSolid, heroChevronUp, heroChevronDown, heroExclamationTriangle, heroChevronLeft, heroPuzzlePieceSolid, heroPuzzlePiece
+    , heroPlay, heroPause, heroStop, heroPlaySolid, heroPauseSolid, heroStopSolid
    })],
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss'
@@ -59,6 +60,9 @@ export class IconComponent {
       case 'back' : this.name = 'heroChevronLeft'; this.nameSolid = 'heroChevronLeft'; break;
       case 'warn' : this.name = 'heroExclamationTriangle'; this.nameSolid = 'heroExclamationTriangle'; break;
       case 'games' : this.name = 'heroPuzzlePiece'; this.nameSolid = 'heroPuzzlePieceSolid'; break;
+      case 'play' : this.name = 'heroPlay'; this.nameSolid = 'heroPlaySolid'; break;
+      case 'pause' : this.name = 'heroPause'; this.nameSolid = 'heroPauseSolid'; break;
+      case 'stop' : this.name = 'heroStop'; this.nameSolid = 'heroStopSolid'; break;
       default: break;
     }
     
