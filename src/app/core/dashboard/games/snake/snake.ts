@@ -1,5 +1,5 @@
 import { BehaviorSubject, Subject } from 'rxjs';
-import { Direction } from './enum';
+import { Direction } from '../enum';
 let arr: Coord[] = []
 let size: number | null = null
 let speedTemp: number | null = null

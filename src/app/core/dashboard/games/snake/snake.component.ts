@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, ViewChild, inject } from '@angular
 import { BackComponent } from '../../../../shared/back/back.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import initGrid, { startAnimation, setDirection, stopAnimation, reset, setPause, restart, setVariable, $loose } from './snake';
-import { Direction } from './enum';
+import { Direction } from '../enum';
 import { SnakeFormulaireComponent } from './snake-formulaire/snake-formulaire.component';
 import { IconComponent } from '../../../../shared/icon/icon.component';
 

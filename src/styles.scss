@@ -2,7 +2,9 @@
 @import './scss/sharp.scss';
 @import './scss/input.scss';
 @import './scss/typographie.scss';
-@import './scss/snake.scss';
+@import './scss/games/snake.scss';
+@import './scss/games/twothousand.scss';
+@import './scss/games/tetris.scss';
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+AR:wght@100..400&display=swap');
 *{
     padding: 0;

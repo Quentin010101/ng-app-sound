@@ -16,6 +16,8 @@ import { BookComponent } from './core/dashboard/librairy/book/book.component';
 import { GamesComponent } from './core/dashboard/games/games.component';
 import { GamesHomeComponent } from './core/dashboard/games/games-home/games-home.component';
 import { SnakeComponent } from './core/dashboard/games/snake/snake.component';
+import { TwothousandComponent } from './core/dashboard/games/twothousand/twothousand.component';
+import { TetrisComponent } from './core/dashboard/games/tetris/tetris.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent, title: 'Login'},
@@ -37,6 +39,12 @@ export const routes: Routes = [
               },
                 {
                   path:'snake', component: SnakeComponent, title: "Snake"
+              },
+                {
+                  path:'2048', component: TwothousandComponent, title: "2048"
+              },
+                {
+                  path:'tetris', component: TetrisComponent, title: "Tetris"
               },
                 ]
             },

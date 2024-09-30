@@ -1,0 +1,43 @@
+._square{
+  border: solid 1px var(--text-5);
+  border-radius: 0.25rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 4vw;
+  color: var(--text-3);
+
+  &.appearance{
+    transition: background-color 0.5s ease;
+  }
+
+  &.square_color_2{
+    background-color: var(--primary-8);
+  }
+  &.square_color_4{
+    background-color: var(--primary-7);
+  }
+  &.square_color_8{
+    background-color: var(--primary-6);
+  }
+  &.square_color_16{
+    background-color: var(--primary-5);
+  }
+  &.square_color_32{
+    background-color: var(--primary-4);
+  }
+  &.square_color_64{
+    background-color: var(--primary-3);
+  }
+  &.square_color_128{
+    background-color: var(--primary-2);
+  }
+  &.square_color_256{
+    background-color: var(--primary-1);
+  }
+  &.square_color_512{
+    background-color: var(--valid);
+  }
+}

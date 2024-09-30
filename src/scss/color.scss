@@ -30,9 +30,13 @@ body{
 
     --primary: #{$primary};
     --primary-1: #{lighten($primary, 5%)};
-    --primary-2: #{lighten($primary, 10%)};
-    --primary-3: #{lighten($primary, 15%)};
-    --primary-4: #{lighten($primary, 20%)};
+    --primary-2: #{lighten($primary, 8%)};
+    --primary-3: #{lighten($primary, 12%)};
+    --primary-4: #{lighten($primary, 16%)};
+    --primary-5: #{lighten($primary, 20%)};
+    --primary-6: #{lighten($primary, 25%)};
+    --primary-7: #{lighten($primary, 30%)};
+    --primary-8: #{lighten($primary, 35%)};
 
 
     --text: #{$text};
@@ -74,9 +78,13 @@ body[data-theme='dark']{
 
     --primary: #{$primary};
     --primary-1: #{darken($primary, 5%)};
-    --primary-2: #{darken($primary, 10%)};
-    --primary-3: #{darken($primary, 15%)};
-    --primary-4: #{darken($primary, 20%)};
+    --primary-2: #{darken($primary, 8%)};
+    --primary-3: #{darken($primary, 12%)};
+    --primary-4: #{darken($primary, 16%)};
+    --primary-5: #{darken($primary, 20%)};
+    --primary-6: #{darken($primary, 25%)};
+    --primary-7: #{darken($primary, 30%)};
+    --primary-8: #{darken($primary, 35%)};
 
     --text: #{$text};
     --text-1: #{darken($text, 5%)};

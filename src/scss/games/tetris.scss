@@ -1,0 +1,15 @@
+.tetris_square{
+  width: 50px;
+  aspect-ratio: 1/1;
+  border: solid;
+}
+
+.tetris_active{
+  background-color: var(--primary);
+}
+
+[data-row]{
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(10,1fr);
+}
