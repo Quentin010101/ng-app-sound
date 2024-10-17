@@ -3,7 +3,7 @@ import { LBlock, Line, Piece, ReverseLBlock, Square, SquigellingLeft, Squigellin
 
 let pieceSize = 4 // Size of the piece container
 let columnNumber = 10
-let rowNumber = 20 + pieceSize
+let rowNumber = 3 + pieceSize
 let timer = 0
 let timerReset = 100
 let grid: number[][] = []
@@ -44,40 +44,54 @@ function updateGridPieces(piece: Piece){
       gridForPiece[i][j] = 0
     }
   }
-  pieceArray.forEach((element, index) => {
+  for(let i = 0; i < pieceArray.length; i++){
     if(count >= 4){
       count = 0
       realIndex++
     }
-    if(element == 1){
+    if(pieceArray[i] === 1){
+      // if(pieceCoord.y + realIndex > rowNumber - 1) return false
+      // if(pieceCoord.x + count > columnNumber - 1) return false
       gridForPiece[ pieceCoord.y + realIndex][pieceCoord.x + count] = 1
     }
-    count++
-  })
-  
+  }
+
+  return true
 }
 function pieceBasicAction(){
   activePiece.pieceCoord.y = activePiece.pieceCoord.y + 1
 }
 export function pieceMoveLeft(){
   activePiece.moveLeft()
-  updateGridPieces(activePiece)
-  draw()
+  if(updateGridPieces(activePiece)){
+    draw()
+  }else{
+    activePiece.moveRight()
+  }
 }
 export function pieceMoveRight(){
   activePiece.moveRight()
-  updateGridPieces(activePiece)
-  draw()
+  if(updateGridPieces(activePiece)){
+    draw()
+  }else{
+    activePiece.moveLeft()
+  }
 }
 export function pieceRotateLeft(){
   activePiece.turnLeft()
-  updateGridPieces(activePiece)
-  draw()
+  if(updateGridPieces(activePiece)){
+    draw()
+  }else{
+    activePiece.turnRight()
+  } 
 }
 export function pieceRotateRight(){
   activePiece.turnRight()
-  updateGridPieces(activePiece)
-  draw()
+  if(updateGridPieces(activePiece)){
+    draw()
+  }else{
+    activePiece.turnLeft()
+  }
 }
 
 function logGrid(){
@@ -93,6 +107,64 @@ function move(){
   pieceBasicAction()
   draw()
 }
+function saveActivePiece(){
+  gridForPiece.forEach((value, firstIndex) => {
+    value.forEach((value2, index2) => {
+      if(value2 === 1) grid[firstIndex][index2] = 1
+    })
+  })
+}
+// a adapter
+function checkIfActivePieceNextMoveIsPossible(): boolean{
+  let y = activePiece.pieceCoord.y
+  console.log("y: " + y)
+  // case piece leave grid
+  try{
+    updateGridPieces(activePiece)
+  }catch{
+    activePiece.pieceCoord.y = y-1
+    return false
+  }
+  if(gridForPiece.length !== grid.length){
+    throw new Error("both grid array are not the same length")
+  }
+  let returnValue = true
+  grid.forEach((gridValue, firstIndex) => {
+    gridValue.forEach((childGridValue, secondIndex) => {
+      // case piece touch grid
+      if(childGridValue === 1 && childGridValue == gridForPiece[firstIndex][secondIndex]){
+        returnValue = false
+      } 
+
+    })
+  })
+  return returnValue
+}
+
+function reverseArray(arr: any[]){
+  let tempArr: any[] = []
+  arr.forEach((v) => {
+    tempArr.unshift(v)
+  })
+  return tempArr
+}
+// a adapter
+function checkVerticalSquare(bool: boolean){
+  let piece = activePiece.getPieceArray()
+  let arrToCheck = []
+  for(let i = 0; i < 4; i++){
+     arrToCheck.push(piece.splice(0,4));
+  }
+  if(bool) arrToCheck = reverseArray(arrToCheck)
+  for(let i = 0; i < arrToCheck.length; i++){
+    if(arrToCheck[i].indexOf(1) === -1){
+      return i
+    }
+  }
+  return -1
+}
+
+
 
 function draw(){
   let gridElement = getGridEment()
@@ -124,8 +196,6 @@ function animate(){
   timer++
   if(timer > timerReset){
     timer = 0
-    console.log("animate")
-    console.log("active piece x coord " + activePiece.pieceCoord.x)
     move()
   }
   window.requestAnimationFrame(animate)
@@ -147,7 +217,7 @@ export function initGrid(){
   const gridElement = getGridEment()
   if(!gridElement) throw new Error('Grid Element is null')
     gridElement.innerHTML = ''
-  for(let i = rowNumber - 1; i > 0; i--){
+  for(let i = 0; i < rowNumber; i++){
     let gridChild1 = document.createElement('DIV')
     gridChild1.dataset['row'] = i.toString()
     for(let j = 0; j < columnNumber; j++){
