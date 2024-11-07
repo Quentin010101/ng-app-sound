@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { addPiece, initGrid, startGame, pieceMoveLeft, pieceMoveRight, pieceRotateLeft, pieceRotateRight } from './tetris';
+import  {init, moveDown, moveLeft, moveRight, rotateLeft, rotateRight, sstart, sstop}  from './tetris';
 
 @Component({
   selector: 'app-tetris',
@@ -10,18 +10,28 @@ import { addPiece, initGrid, startGame, pieceMoveLeft, pieceMoveRight, pieceRota
 })
 export class TetrisComponent {
   ngOnInit(){
-    initGrid()
-    addPiece()
-    startGame()
+    init()
+    this.startGame()
+  }
+
+  startGame(){
+    sstart()
+  }
+
+  stopGame(){
+    sstop()
   }
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    event.preventDefault() 
-    if(event.key === "a") pieceRotateLeft()
-    if(event.key === "e") pieceRotateRight()
-    if(event.key === "ArrowRight") pieceMoveRight()
-    if(event.key === "ArrowLeft") pieceMoveLeft()
-    if(event.key === "ArrowDown") ''
+    event.preventDefault()
+    console.log(event.key)
+    switch(event.key){
+      case 'ArrowLeft' : moveLeft(); break;
+      case 'ArrowRight' : moveRight(); break;
+      case 'ArrowDown' : moveDown(); break;
+      case 'a' : rotateLeft(); break;
+      case 'e' : rotateRight(); break;
+    }
   }
 }

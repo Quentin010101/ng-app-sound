@@ -6,21 +6,20 @@ $primary: #eb4034;
 $primary: #44a9e4;
 
 body{
-    $bg: #e0e0e0;
+    $bg: #f1f1f1;
 
     --valid: green;
     --invalid: red;
 
     --bg: #{$bg};
-    --bg-0-5: #{darken($bg, 2.5%)};
     --bg-1: #{darken($bg, 5%)};
-    --bg-2: #{darken($bg, 10%)};
-    --bg-3: #{darken($bg, 15%)};
-    --bg-4: #{darken($bg, 20%)};
-    --bg-5: #{darken($bg, 25%)};
-    --bg-6: #{darken($bg, 30%)};
-    --bg-7: #{darken($bg, 40%)};
-    --bg-8: #{darken($bg, 50%)};
+    --bg-2: #{darken($bg, 15%)};
+    --bg-3: #{darken($bg, 25%)};
+    --bg-4: #{darken($bg, 35%)};
+    --bg-5: #{darken($bg, 40%)};
+    --bg-6: #{darken($bg, 45%)};
+    --bg-7: #{darken($bg, 50%)};
+    --bg-8: #{darken($bg, 55%)};
     --bg-invert-1: #{darken($bg, 80%)};
     --bg-invert-2: #{darken($bg, 70%)};
     --bg-invert-3: #{darken($bg, 65%)};
@@ -60,15 +59,14 @@ body[data-theme='dark']{
     $text: invert($text);
 
     --bg: #{$bg};
-    --bg-0-5: #{lighten($bg, 2.5%)};
     --bg-1: #{lighten($bg, 5%)};
-    --bg-2: #{lighten($bg, 10%)};
-    --bg-3: #{lighten($bg, 15%)};
-    --bg-4: #{lighten($bg, 20%)};
-    --bg-5: #{lighten($bg, 25%)};
-    --bg-6: #{lighten($bg, 30%)};
-    --bg-7: #{lighten($bg, 40%)};
-    --bg-8: #{lighten($bg, 50%)};
+    --bg-2: #{lighten($bg, 15%)};
+    --bg-3: #{lighten($bg, 25%)};
+    --bg-4: #{lighten($bg, 35%)};
+    --bg-5: #{lighten($bg, 40%)};
+    --bg-6: #{lighten($bg, 45%)};
+    --bg-7: #{lighten($bg, 50%)};
+    --bg-8: #{lighten($bg, 55%)};
     --bg-invert-1: #{lighten($bg, 80%)};
     --bg-invert-2: #{lighten($bg, 70%)};
     --bg-invert-3: #{lighten($bg, 65%)};
